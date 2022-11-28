@@ -122,7 +122,7 @@ jobs:
       working-directory: ./src
 
     - name: Secret detection
-      uses: gitleaks/gitleaks-action@v1.6.0
+      uses: gitleaks/gitleaks-action@v2.3.1
 
     - name: Perform License Scanning
       run: license_finder -r
