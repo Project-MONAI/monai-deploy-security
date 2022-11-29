@@ -1,0 +1,25 @@
+﻿{
+  "MonaiDeployAuthentication": {
+    "BypassAuthentication": false,
+    "OpenId": {
+      "ServerRealm": "TEST-REALM",
+      "ServerRealmKey": "EncryptionKey",
+      "ClientId": "monai-app",
+      "Claims": {
+        "RequiredUserClaims": [
+          {
+            "user_roles": "monai-deploy-users",
+            "endpoints": [ "payloads", "workflows", "workflowinstances", "tasks" ]
+          },
+          {
+            "user_roles": "pacs-admins",
+            "endpoints": [ "config" ]
+          }
+        ],
+        "RequiredAdminClaims": [
+          { "user_roles": "monai-role-admin" }
+        ]
+      }
+    }
+  }
+}

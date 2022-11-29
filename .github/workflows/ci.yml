@@ -83,10 +83,6 @@ jobs:
       actions: read
       contents: read
       security-events: write
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'csharp' ]
 
     steps:
     - name: Checkout repository
@@ -280,27 +276,12 @@ jobs:
           ls -lR $PACKAGEDIR
         working-directory: ./src
 
-      - name: Zip Plug-ins
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-        run: |
-          ./package.sh
-          ls -lR release/
-        working-directory: ./src/Plugins
-
       - name: Upload Nuget
         if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: actions/upload-artifact@v3.1.1
         with:
           name: nuget
           path: ${{ github.workspace }}/release/*.nupkg
-          retention-days: 30
-
-      - name: Upload Zipped Plug-ins
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-        uses: actions/upload-artifact@v3.1.1
-        with:
-          name: plug-ins
-          path: ${{ github.workspace }}/src/Plugins/release/*.zip
           retention-days: 30
 
   publish:
@@ -395,7 +376,6 @@ jobs:
           repository: ${{ steps.repo.outputs._1 }}
           milestone: ${{ env.MAJORMINORPATCH }}
           name: Release v${{ env.MAJORMINORPATCH }}
-          assets: plug-ins/Monai.Deploy.Security.zip
 
       - name: Publish release with GitReleaseManager
         if: ${{ contains(github.ref, 'refs/heads/main') }}
