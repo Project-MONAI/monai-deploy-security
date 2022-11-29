@@ -24,15 +24,7 @@ namespace Monai.Deploy.Security.Authentication.Extensions
         public const string UserPolicyName = "User";
 
         // Configuration Keys
-        public const string ServerRealm = "ServerRealm";
-
-        public const string ServerRealmKey = "ServerRealmKey";
-        public const string Claims = "Claims";
         public const string OpenId = "OpenId";
-        public const string MonaiDeployAuthentication = "MonaiDeployAuthentication";
-        public const string RequiredUserClaims = "RequiredUserClaims";
-        public const string RequiredAdminClaims = "RequiredAdminClaims";
         public const string UserRoles = "user_roles";
-        public const string Endpoints = "endpoints";
     }
 }

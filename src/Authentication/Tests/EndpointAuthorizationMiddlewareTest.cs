@@ -84,6 +84,7 @@ namespace Monai.Deploy.Security.Authentication.Tests
 
             var data = await responseMessage.Content.ReadFromJsonAsync<List<string>>().ConfigureAwait(false);
 
+            Assert.NotNull(data);
             Assert.Collection(data,
                 item => item.Equals("A", StringComparison.Ordinal),
                 item => item.Equals("B", StringComparison.Ordinal),

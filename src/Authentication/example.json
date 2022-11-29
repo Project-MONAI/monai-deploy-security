@@ -5,6 +5,7 @@
       "ServerRealm": "TEST-REALM",
       "ServerRealmKey": "EncryptionKey",
       "ClientId": "monai-app",
+      "Audiences": [ "monai-deploy" ],
       "Claims": {
         "RequiredUserClaims": [
           {

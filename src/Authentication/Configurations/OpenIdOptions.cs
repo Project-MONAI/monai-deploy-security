@@ -31,5 +31,8 @@ namespace Monai.Deploy.Security.Authentication.Configurations
 
         [ConfigurationKeyName("Claims")]
         public Claims? Claims { get; set; }
+
+        [ConfigurationKeyName("Audiences")]
+        public IList<string>? Audiences { get; set; }
     }
 }

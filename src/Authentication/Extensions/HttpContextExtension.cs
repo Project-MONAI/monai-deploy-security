@@ -32,7 +32,7 @@ namespace Monai.Deploy.Security.Authentication.Extensions
             Guard.Against.Null(adminClaims);
             Guard.Against.Null(userClaims);
 
-            foreach (var claim in adminClaims)
+            foreach (var claim in adminClaims!)
             {
                 if (httpcontext.User.HasClaim(AuthKeys.UserRoles, claim.UserRoles!))
                 {
@@ -40,7 +40,7 @@ namespace Monai.Deploy.Security.Authentication.Extensions
                 }
             }
 
-            foreach (var claim in userClaims)
+            foreach (var claim in userClaims!)
             {
                 if (httpcontext.User.HasClaim(AuthKeys.UserRoles, claim.UserRoles!))
                 {

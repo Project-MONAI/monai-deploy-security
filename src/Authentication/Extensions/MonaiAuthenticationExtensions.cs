@@ -64,7 +64,7 @@ namespace Monai.Deploy.Security.Authentication.Extensions
                 {
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configurations.Value.OpenId!.ServerRealmKey!)),
                     ValidIssuer = configurations.Value.OpenId.ServerRealm,
-                    ValidAudiences = new List<string>() { "account", "monai-app" },
+                    ValidAudiences = configurations.Value.OpenId.Audiences,
                     ValidateIssuerSigningKey = true,
                     ValidateIssuer = true,
                     ValidateLifetime = true,
