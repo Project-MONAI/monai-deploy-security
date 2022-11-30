@@ -1,0 +1,910 @@
+---
+- - :approve
+  - Ardalis.GuardClauses
+  - :who: mocsharp
+    :why: MIT (https://github.com/ardalis/GuardClauses.Analyzers/raw/master/LICENSE)
+    :versions:
+    - 4.0.1
+    :when: 2022-08-16 23:10:21.184627612 Z
+- - :approve
+  - JetBrains.Annotations
+  - :who: mocsharp
+    :why: MIT (https://github.com/JetBrains/JetBrains.Annotations/raw/main/license.md)
+    :versions:
+    - 2021.3.0
+    :when: 2022-08-16 23:05:35.941494226 Z
+- - :approve
+  - Microsoft.AspNetCore.Authentication.JwtBearer
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/aspnetcore/raw/main/LICENSE.txt)
+    :versions:
+    - 6.0.11
+    :when: 2022-10-14 23:36:49.751931025 Z
+- - :approve
+  - Microsoft.AspNetCore.TestHost
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/aspnetcore/raw/main/LICENSE.txt)
+    :versions:
+    - 6.0.11
+    :when: 2022-10-14 23:36:49.751931025 Z
+- - :approve
+  - Microsoft.CSharp
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 4.5.0
+    :when: 2022-08-16 23:05:47.910358457 Z
+- - :approve
+  - Microsoft.CodeCoverage
+  - :who: mocsharp
+    :why: MIT (https://github.com/microsoft/vstest/raw/main/LICENSE)
+    :versions:
+    - 17.4.0
+    :when: 2022-08-16 23:05:48.342748414 Z
+- - :approve
+  - Microsoft.Extensions.Configuration
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.1
+    :when: 2022-08-16 23:05:55.977031585 Z
+- - :approve
+  - Microsoft.Extensions.Configuration.Abstractions
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:05:56.428678166 Z
+- - :approve
+  - Microsoft.Extensions.Configuration.Binder
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:05:56.869915708 Z
+- - :approve
+  - Microsoft.Extensions.Configuration.CommandLine
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:05:57.317738091 Z
+- - :approve
+  - Microsoft.Extensions.Configuration.EnvironmentVariables
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.1
+    :when: 2022-08-16 23:05:58.210886620 Z
+- - :approve
+  - Microsoft.Extensions.Configuration.FileExtensions
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:05:58.646414000 Z
+- - :approve
+  - Microsoft.Extensions.Configuration.Json
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:05:59.140939154 Z
+- - :approve
+  - Microsoft.Extensions.Configuration.UserSecrets
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.1
+    :when: 2022-08-16 23:05:59.570260365 Z
+- - :approve
+  - Microsoft.Extensions.DependencyInjection
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:00.904189459 Z
+- - :approve
+  - Microsoft.Extensions.DependencyInjection.Abstractions
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:01.778427777 Z
+- - :approve
+  - Microsoft.Extensions.FileProviders.Abstractions
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:02.711721543 Z
+- - :approve
+  - Microsoft.Extensions.FileProviders.Physical
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:03.153109366 Z
+- - :approve
+  - Microsoft.Extensions.FileSystemGlobbing
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:03.598159964 Z
+- - :approve
+  - Microsoft.Extensions.Hosting
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.1
+    :when: 2022-08-16 23:06:04.488545906 Z
+- - :approve
+  - Microsoft.Extensions.Hosting.Abstractions
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:04.935613050 Z
+- - :approve
+  - Microsoft.Extensions.Logging
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:05.840705669 Z
+- - :approve
+  - Microsoft.Extensions.Logging.Abstractions
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.3
+    :when: 2022-08-16 23:06:06.728283354 Z
+- - :approve
+  - Microsoft.Extensions.Logging.Configuration
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:07.178037938 Z
+- - :approve
+  - Microsoft.Extensions.Logging.Console
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:07.618174405 Z
+- - :approve
+  - Microsoft.Extensions.Logging.Debug
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:08.061150392 Z
+- - :approve
+  - Microsoft.Extensions.Logging.EventLog
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:08.503025043 Z
+- - :approve
+  - Microsoft.Extensions.Logging.EventSource
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:08.971793852 Z
+- - :approve
+  - Microsoft.Extensions.Options
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:10.315793104 Z
+- - :approve
+  - Microsoft.Extensions.Options.ConfigurationExtensions
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:10.759567780 Z
+- - :approve
+  - Microsoft.Extensions.Primitives
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:11.669234037 Z
+- - :approve
+  - Microsoft.IdentityModel.JsonWebTokens
+  - :who: mocsharp
+    :why: MIT (https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/raw/dev/LICENSE.txt)
+    :versions:
+    - 6.10.0
+    :when: 2022-10-14 23:37:14.398733049 Z
+- - :approve
+  - Microsoft.IdentityModel.Logging
+  - :who: mocsharp
+    :why: MIT (https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/raw/dev/LICENSE.txt)
+    :versions:
+    - 6.10.0
+    :when: 2022-10-14 23:37:15.196566449 Z
+- - :approve
+  - Microsoft.IdentityModel.Protocols
+  - :who: mocsharp
+    :why: MIT (https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/raw/dev/LICENSE.txt)
+    :versions:
+    - 6.10.0
+    :when: 2022-10-14 23:37:16.007362554 Z
+- - :approve
+  - Microsoft.IdentityModel.Protocols.OpenIdConnect
+  - :who: mocsharp
+    :why: MIT (https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/raw/dev/LICENSE.txt)
+    :versions:
+    - 6.10.0
+    :when: 2022-10-14 23:37:16.403183970 Z
+- - :approve
+  - Microsoft.IdentityModel.Tokens
+  - :who: mocsharp
+    :why: MIT (https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/raw/dev/LICENSE.txt)
+    :versions:
+    - 6.10.0
+    :when: 2022-10-14 23:37:16.793759607 Z
+- - :approve
+  - Microsoft.NET.Test.Sdk
+  - :who: mocsharp
+    :why: MIT (https://raw.githubusercontent.com/microsoft/vstest/main/LICENSE)
+    :versions:
+    - 17.4.0
+    :when: 2022-09-01 23:06:13.008314524 Z
+- - :approve
+  - Microsoft.NETCore.Platforms
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 1.1.0
+    :when: 2022-08-16 23:06:13.457444370 Z
+- - :approve
+  - Microsoft.NETCore.Targets
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 1.1.0
+    :when: 2022-08-16 23:06:14.351517365 Z
+- - :approve
+  - Microsoft.TestPlatform.ObjectModel
+  - :who: mocsharp
+    :why: MIT (https://github.com/microsoft/vstest/raw/v17.4.0/LICENSE)
+    :versions:
+    - 17.4.0
+    :when: 2022-08-16 23:06:16.175705981 Z
+- - :approve
+  - Microsoft.TestPlatform.TestHost
+  - :who: mocsharp
+    :why: MIT (https://github.com/microsoft/vstest/raw/v17.4.0/LICENSE)
+    :versions:
+    - 17.4.0
+    :when: 2022-08-16 23:06:17.671459450 Z
+- - :approve
+  - Microsoft.Win32.Primitives
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:19.143002793 Z
+- - :approve
+  - NETStandard.Library
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 1.6.1
+    :when: 2022-08-16 23:06:24.297968578 Z
+- - :approve
+  - Newtonsoft.Json
+  - :who: mocsharp
+    :why: MIT (https://github.com/JamesNK/Newtonsoft.Json/raw/master/LICENSE.md)
+    :versions:
+    - 13.0.1
+    :when: 2022-08-16 23:06:26.098713272 Z
+- - :approve
+  - NuGet.Frameworks
+  - :who: mocsharp
+    :why: Apache-2.0 (https://github.com/NuGet/NuGet.Client/raw/dev/LICENSE.txt)
+    :versions:
+    - 5.11.0
+    :when: 2022-08-16 23:06:27.464713741 Z
+- - :approve
+  - System.AppContext
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:35.616826259 Z
+- - :approve
+  - System.Buffers
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:36.066158483 Z
+- - :approve
+  - System.Collections
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:36.963316512 Z
+- - :approve
+  - System.Collections.Concurrent
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:37.420188946 Z
+- - :approve
+  - System.Console
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:43.790988552 Z
+- - :approve
+  - System.Diagnostics.Debug
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:44.247110250 Z
+- - :approve
+  - System.Diagnostics.DiagnosticSource
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:44.697068615 Z
+- - :approve
+  - System.Diagnostics.EventLog
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:06:45.597825555 Z
+- - :approve
+  - System.Diagnostics.Tools
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:46.046733015 Z
+- - :approve
+  - System.Diagnostics.Tracing
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:46.512191360 Z
+- - :approve
+  - System.Globalization
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:48.351904637 Z
+- - :approve
+  - System.Globalization.Calendars
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:48.816801957 Z
+- - :approve
+  - System.Globalization.Extensions
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:49.237248446 Z
+- - :approve
+  - System.IO
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:49.709349587 Z
+- - :approve
+  - System.IO.Compression
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:51.984085743 Z
+- - :approve
+  - System.IO.Compression.ZipFile
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:52.443609672 Z
+- - :approve
+  - runtime.native.System.Net.Http
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:41.735502132 Z
+- - :approve
+  - runtime.native.System.Security.Cryptography.Apple
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:42.215870949 Z
+- - :approve
+  - runtime.native.System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:42.677550528 Z
+- - :approve
+  - System.IO.FileSystem
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:52.894925276 Z
+- - :approve
+  - System.IO.FileSystem.Primitives
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License (http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:53.356642197 Z
+- - :approve
+  - System.IO.Pipelines
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.3
+    :when: 2022-08-16 23:06:53.356642197 Z
+- - :approve
+  - System.IdentityModel.Tokens.Jwt
+  - :who: mocsharp
+    :why: MIT (https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/raw/dev/LICENSE.txt)
+    :versions:
+    - 6.10.0
+    :when: 2022-10-14 23:37:56.206982078 Z
+- - :approve
+  - System.Linq
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:53.837042740 Z
+- - :approve
+  - System.Linq.Expressions
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:54.757028877 Z
+- - :approve
+  - System.Net.Http
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:56.146126058 Z
+- - :approve
+  - System.Net.Primitives
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:57.515482658 Z
+- - :approve
+  - System.Net.Sockets
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:58.430570828 Z
+- - :approve
+  - System.ObjectModel
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:06:58.928908929 Z
+- - :approve
+  - System.Reflection
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:00.774912239 Z
+- - :approve
+  - System.Reflection.Emit
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:01.233784676 Z
+- - :approve
+  - System.Reflection.Emit.ILGeneration
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:01.700190013 Z
+- - :approve
+  - System.Reflection.Emit.Lightweight
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:02.198989958 Z
+- - :approve
+  - System.Reflection.Extensions
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:02.660700392 Z
+- - :approve
+  - System.Reflection.Metadata
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/corefx/raw/master/LICENSE.TXT)
+    :versions:
+    - 1.6.0
+    :when: 2022-08-16 23:07:03.120522282 Z
+- - :approve
+  - System.Reflection.Primitives
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:03.573971058 Z
+- - :approve
+  - System.Reflection.TypeExtensions
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:04.045468423 Z
+- - :approve
+  - System.Resources.ResourceManager
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:04.510917760 Z
+- - :approve
+  - System.Runtime
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:04.967405911 Z
+- - :approve
+  - System.Runtime.CompilerServices.Unsafe
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/corefx/raw/master/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:07:05.893799510 Z
+- - :approve
+  - System.Runtime.Extensions
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:06.806629733 Z
+- - :approve
+  - System.Runtime.Handles
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:07.266021950 Z
+- - :approve
+  - System.Runtime.InteropServices
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:07.723619378 Z
+- - :approve
+  - System.Runtime.InteropServices.RuntimeInformation
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:08.188254082 Z
+- - :approve
+  - System.Runtime.Numerics
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:09.168158855 Z
+- - :approve
+  - System.Security.Cryptography.Algorithms
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:11.995074441 Z
+- - :approve
+  - System.Security.Cryptography.Cng
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.5.0
+    :when: 2022-08-16 23:07:12.460027529 Z
+- - :approve
+  - System.Security.Cryptography.Csp
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:12.915683406 Z
+- - :approve
+  - System.Security.Cryptography.Encoding
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:13.372792205 Z
+- - :approve
+  - System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:13.833567880 Z
+- - :approve
+  - System.Security.Cryptography.Primitives
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:14.288309340 Z
+- - :approve
+  - System.Security.Cryptography.X509Certificates
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:15.218020510 Z
+- - :approve
+  - System.Text.Encoding
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:17.528153938 Z
+- - :approve
+  - System.Text.Encoding.Extensions
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:18.447188540 Z
+- - :approve
+  - System.Text.Encodings.Web
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:07:19.377530263 Z
+- - :approve
+  - System.Text.Json
+  - :who: mocsharp
+    :why: MIT (https://github.com/dotnet/runtime/raw/main/LICENSE.TXT)
+    :versions:
+    - 6.0.0
+    :when: 2022-08-16 23:07:20.787263056 Z
+- - :approve
+  - System.Text.RegularExpressions
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:21.228544774 Z
+- - :approve
+  - System.Threading
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:21.683762371 Z
+- - :approve
+  - System.Threading.Tasks
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:23.571361753 Z
+- - :approve
+  - System.Threading.Tasks.Extensions
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:24.492365116 Z
+- - :approve
+  - System.Threading.Timer
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:25.883963589 Z
+- - :approve
+  - System.Xml.ReaderWriter
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:26.793971546 Z
+- - :approve
+  - System.Xml.XDocument
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:27.254750074 Z
+- - :approve
+  - coverlet.collector
+  - :who: mocsharp
+    :why: MIT (https://github.com/coverlet-coverage/coverlet/raw/master/LICENSE)
+    :versions:
+    - 3.2.0
+    :when: 2022-08-16 23:07:29.112978564 Z
+- - :approve
+  - runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:37.975510010 Z
+- - :approve
+  - runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:38.916484375 Z
+- - :approve
+  - runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:39.846759614 Z
+- - :approve
+  - runtime.native.System
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:40.770387468 Z
+- - :approve
+  - runtime.native.System.IO.Compression
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:41.256353878 Z
+- - :approve
+  - runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:43.607437995 Z
+- - :approve
+  - runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:44.531336835 Z
+- - :approve
+  - runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:45.456102215 Z
+- - :approve
+  - runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:45.914491629 Z
+- - :approve
+  - runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:46.875356107 Z
+- - :approve
+  - runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:47.799517867 Z
+- - :approve
+  - runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:48.721519740 Z
+- - :approve
+  - runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl
+  - :who: mocsharp
+    :why: MICROSOFT .NET LIBRARY License ( http://go.microsoft.com/fwlink/?LinkId=329770)
+    :versions:
+    - 4.3.0
+    :when: 2022-08-16 23:07:49.744187064 Z
+- - :approve
+  - xunit
+  - :who: mocsharp
+    :why: Apache-2.0 ( https://raw.githubusercontent.com/xunit/xunit/master/license.txt)
+    :versions:
+    - 2.4.2
+    :when: 2022-08-16 23:07:58.741042809 Z
+- - :approve
+  - xunit.abstractions
+  - :who: mocsharp
+    :why: Apache-2.0 ( https://raw.githubusercontent.com/xunit/xunit/master/license.txt)
+    :versions:
+    - 2.0.3
+    :when: 2022-08-16 23:07:59.230841326 Z
+- - :approve
+  - xunit.analyzers
+  - :who: mocsharp
+    :why: Apache-2.0 ( https://raw.githubusercontent.com/xunit/xunit/master/license.txt)
+    :versions:
+    - 1.0.0
+    :when: 2022-08-16 23:08:00.165216213 Z
+- - :approve
+  - xunit.assert
+  - :who: mocsharp
+    :why: Apache-2.0 ( https://raw.githubusercontent.com/xunit/xunit/master/license.txt)
+    :versions:
+    - 2.4.2
+    :when: 2022-08-16 23:08:01.105384447 Z
+- - :approve
+  - xunit.core
+  - :who: mocsharp
+    :why: Apache-2.0 ( https://raw.githubusercontent.com/xunit/xunit/master/license.txt)
+    :versions:
+    - 2.4.2
+    :when: 2022-08-16 23:08:02.057792372 Z
+- - :approve
+  - xunit.extensibility.core
+  - :who: mocsharp
+    :why: Apache-2.0 ( https://raw.githubusercontent.com/xunit/xunit/master/license.txt)
+    :versions:
+    - 2.4.2
+- - :approve
+  - xunit.extensibility.execution
+  - :who: mocsharp
+    :why: Apache-2.0 ( https://raw.githubusercontent.com/xunit/xunit/master/license.txt)
+    :versions:
+    - 2.4.2
+    :when: 2022-08-16 23:08:03.959558421 Z
+- - :approve
+  - xunit.runner.visualstudio
+  - :who: mocsharp
+    :why: MIT ( https://licenses.nuget.org/MIT)
+    :versions:
+    - 2.4.5
+    :when: 2022-08-16 23:08:04.892608686 Z
