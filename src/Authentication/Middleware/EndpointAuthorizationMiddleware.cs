@@ -45,7 +45,7 @@ namespace Monai.Deploy.Security.Authentication.Middleware
         {
             if (_options.Value.BypassAuth(_logger))
             {
-                await _next(httpcontext);
+                await _next(httpcontext).ConfigureAwait(false);
                 return;
             }
 

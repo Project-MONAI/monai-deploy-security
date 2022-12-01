@@ -72,30 +72,8 @@ namespace Monai.Deploy.Security.Authentication.Extensions
                 };
             });
 
-            services.AddAuthorization(options =>
-            {
-                if (configurations.Value.OpenId!.Claims!.RequiredAdminClaims!.Any())
-                {
-                    AddPolicy(options, configurations.Value.OpenId!.Claims!.RequiredAdminClaims!, AuthKeys.AdminPolicyName);
-                }
-
-                if (configurations.Value.OpenId!.Claims!.RequiredUserClaims!.Any())
-                {
-                    AddPolicy(options, configurations.Value.OpenId!.Claims!.RequiredUserClaims!, AuthKeys.UserPolicyName);
-                }
-            });
-
+            services.AddAuthorization();
             return services;
-        }
-
-        private static void AddPolicy(AuthorizationOptions options, List<Configurations.Claim> claims, string policyName)
-        {
-            foreach (var dict in claims)
-            {
-                options.AddPolicy(policyName, policy => policy
-                    .RequireAuthenticatedUser()
-                    .RequireClaim("user_roles", dict.UserRoles!));
-            }
         }
     }
 }
