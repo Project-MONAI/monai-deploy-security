@@ -21,6 +21,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Monai.Deploy.Security.Authentication.Configurations;
 using Monai.Deploy.Security.Authentication.Extensions;
+using Monai.Deploy.WorkflowManager.Logging;
 
 namespace Monai.Deploy.Security.Authentication.Middleware
 {
@@ -54,11 +55,13 @@ namespace Monai.Deploy.Security.Authentication.Middleware
             {
                 if (httpcontext.GetRouteValue("controller") is string controller)
                 {
+                    _logger.UserAccessingController(httpcontext.User.Identity.Name, controller);
                     var validEndpoints = httpcontext.GetValidEndpoints(_options.Value.OpenId!.Claims!.RequiredAdminClaims!, _options.Value.OpenId!.Claims!.RequiredUserClaims!);
                     var result = validEndpoints.Any(e => e.Equals(controller, StringComparison.InvariantCultureIgnoreCase)) || validEndpoints.Contains("all");
 
                     if (result is false)
                     {
+                        _logger.UserAccessDenied(httpcontext.User.Identity.Name, string.Join(',', validEndpoints));
                         httpcontext.Response.StatusCode = (int)HttpStatusCode.Forbidden;
 
                         await httpcontext.Response.CompleteAsync().ConfigureAwait(false);

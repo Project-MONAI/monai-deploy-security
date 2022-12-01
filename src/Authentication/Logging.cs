@@ -20,7 +20,13 @@ namespace Monai.Deploy.WorkflowManager.Logging
 {
     public static partial class Log
     {
-        [LoggerMessage(EventId = 500000, Level = LogLevel.Information, Message = "BYpass authentication.")]
+        [LoggerMessage(EventId = 500000, Level = LogLevel.Information, Message = "Bypass authentication.")]
         public static partial void BypassAuthentication(this ILogger logger);
+
+        [LoggerMessage(EventId = 500001, Level = LogLevel.Debug, Message = "User '{user}' attempting to access controller '{controller}'.")]
+        public static partial void UserAccessingController(this ILogger logger, string? user, string controller);
+
+        [LoggerMessage(EventId = 500002, Level = LogLevel.Debug, Message = "User '{user}' access denied due to allowed permissions: '{permissions}'.")]
+        public static partial void UserAccessDenied(this ILogger logger, string? user, string? permissions);
     }
 }
