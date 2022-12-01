@@ -29,8 +29,8 @@ namespace Monai.Deploy.Security.Authentication.Configurations
         [ConfigurationKeyName("ClientId")]
         public string? ClientId { get; set; }
 
-        [ConfigurationKeyName("Claims")]
-        public Claims? Claims { get; set; }
+        [ConfigurationKeyName("ClaimMappings")]
+        public ClaimMappings? Claims { get; set; }
 
         [ConfigurationKeyName("Audiences")]
         public IList<string>? Audiences { get; set; }

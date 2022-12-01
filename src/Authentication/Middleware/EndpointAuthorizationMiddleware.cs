@@ -56,7 +56,7 @@ namespace Monai.Deploy.Security.Authentication.Middleware
                 if (httpcontext.GetRouteValue("controller") is string controller)
                 {
                     _logger.UserAccessingController(httpcontext.User.Identity.Name, controller);
-                    var validEndpoints = httpcontext.GetValidEndpoints(_options.Value.OpenId!.Claims!.RequiredAdminClaims!, _options.Value.OpenId!.Claims!.RequiredUserClaims!);
+                    var validEndpoints = httpcontext.GetValidEndpoints(_options.Value.OpenId!.Claims!.AdminClaims!, _options.Value.OpenId!.Claims!.UserClaims!);
                     var result = validEndpoints.Any(e => e.Equals(controller, StringComparison.InvariantCultureIgnoreCase)) || validEndpoints.Contains("all");
 
                     if (result is false)

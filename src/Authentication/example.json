@@ -6,19 +6,23 @@
       "ServerRealmKey": "EncryptionKey",
       "ClientId": "monai-app",
       "Audiences": [ "monai-deploy" ],
-      "Claims": {
-        "RequiredUserClaims": [
+      "ClaimMappings": {
+        "UserClaims": [
           {
-            "user_roles": "monai-deploy-users",
-            "endpoints": [ "payloads", "workflows", "workflowinstances", "tasks" ]
+            "claim": "user_roles",
+            "role": "monai-deploy-user",
+            "endpoints": [ "test" ]
           },
           {
             "user_roles": "pacs-admins",
             "endpoints": [ "config" ]
           }
         ],
-        "RequiredAdminClaims": [
-          { "user_roles": "monai-role-admin" }
+        "AdminClaims": [
+          {
+            "claim": "user_roles",
+            "role": "monai-role-admin"
+          }
         ]
       }
     }

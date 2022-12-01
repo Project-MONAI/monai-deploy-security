@@ -44,7 +44,7 @@ namespace Monai.Deploy.Security.Authentication.Configurations
             {
                 throw new InvalidOperationException("OpenId configuration is invalid.");
             }
-            if (OpenId.Claims is null || OpenId.Claims.RequiredUserClaims!.IsNullOrEmpty() || OpenId.Claims.RequiredAdminClaims!.IsNullOrEmpty())
+            if (OpenId.Claims is null || OpenId.Claims.UserClaims!.IsNullOrEmpty() || OpenId.Claims.AdminClaims!.IsNullOrEmpty())
             {
                 throw new InvalidOperationException("No claims defined for OpenId.");
             }

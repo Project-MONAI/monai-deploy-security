@@ -6,19 +6,24 @@
       "ServerRealmKey": "l9ZRlbMQBt9k1klUUrlWFuke8WbqnEde",
       "Audiences": [ "monai-app" ],
       "ClientId": "monai-app-test",
-      "Claims": {
-        "RequiredUserClaims": [
+      "ClaimMappings": {
+        "UserClaims": [
           {
-            "user_roles": "role-with-test",
+            "claim": "user_roles",
+            "role": "role-with-test",
             "endpoints": [ "test" ]
           },
           {
-            "user_roles": "role-without-test",
+            "claim": "user_roles",
+            "roles": "role-without-test",
             "endpoints": [ "no-test" ]
           }
         ],
-        "RequiredAdminClaims": [
-          { "user_roles": "monai-role-admin" }
+        "AdminClaims": [
+          {
+            "claim": "user_roles",
+            "role": "monai-role-admin"
+          }
         ]
       }
     }

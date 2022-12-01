@@ -17,7 +17,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using Monai.Deploy.Security.Authentication.Extensions;
 using Claim = System.Security.Claims.Claim;
 
 namespace Monai.Deploy.Security.Authentication.Tests
@@ -30,7 +29,7 @@ namespace Monai.Deploy.Security.Authentication.Tests
             public static SecurityKey SecurityKey { get; }
             public static SigningCredentials SigningCredentials { get; }
 
-            private static readonly JwtSecurityTokenHandler TokenHandler = new JwtSecurityTokenHandler();
+            private static readonly JwtSecurityTokenHandler TokenHandler = new();
 
             static MockJwtTokenHandler()
             {
@@ -40,7 +39,7 @@ namespace Monai.Deploy.Security.Authentication.Tests
 
             public static string GenerateJwtToken(string role)
             {
-                var claims = new[] { new Claim(AuthKeys.UserRoles, role) };
+                var claims = new[] { new Claim("user_roles", role) };
                 return TokenHandler.WriteToken(new JwtSecurityToken(Issuer, "monai-app", claims, null, DateTime.UtcNow.AddMinutes(20), SigningCredentials));
             }
         }

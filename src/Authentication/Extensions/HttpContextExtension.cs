@@ -27,14 +27,14 @@ namespace Monai.Deploy.Security.Authentication.Extensions
         /// <param name="httpcontext"></param>
         /// <param name="requiredClaims"></param>
         /// <returns></returns>
-        public static List<string> GetValidEndpoints(this HttpContext httpcontext, List<Configurations.Claim> adminClaims, List<Configurations.Claim> userClaims)
+        public static List<string> GetValidEndpoints(this HttpContext httpcontext, List<Configurations.ClaimMapping> adminClaims, List<Configurations.ClaimMapping> userClaims)
         {
             Guard.Against.Null(adminClaims);
             Guard.Against.Null(userClaims);
 
             foreach (var claim in adminClaims!)
             {
-                if (httpcontext.User.HasClaim(AuthKeys.UserRoles, claim.UserRoles!))
+                if (httpcontext.User.HasClaim(claim.Claim, claim.Role))
                 {
                     return new List<string> { "all" };
                 }
@@ -42,7 +42,7 @@ namespace Monai.Deploy.Security.Authentication.Extensions
 
             foreach (var claim in userClaims!)
             {
-                if (httpcontext.User.HasClaim(AuthKeys.UserRoles, claim.UserRoles!))
+                if (httpcontext.User.HasClaim(claim.Claim, claim.Role))
                 {
                     return claim.Endpoints!;
                 }
