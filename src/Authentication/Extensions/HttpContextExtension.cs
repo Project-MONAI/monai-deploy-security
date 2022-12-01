@@ -16,6 +16,9 @@
 
 using Ardalis.GuardClauses;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Monai.Deploy.Security.Authentication.Middleware;
+using Monai.Deploy.WorkflowManager.Logging;
 
 namespace Monai.Deploy.Security.Authentication.Extensions
 {
@@ -27,7 +30,7 @@ namespace Monai.Deploy.Security.Authentication.Extensions
         /// <param name="httpcontext"></param>
         /// <param name="requiredClaims"></param>
         /// <returns></returns>
-        public static List<string> GetValidEndpoints(this HttpContext httpcontext, List<Configurations.ClaimMapping> adminClaims, List<Configurations.ClaimMapping> userClaims)
+        public static List<string> GetValidEndpoints(this HttpContext httpcontext, ILogger<EndpointAuthorizationMiddleware> logger, List<Configurations.ClaimMapping> adminClaims, List<Configurations.ClaimMapping> userClaims)
         {
             Guard.Against.Null(adminClaims);
             Guard.Against.Null(userClaims);
@@ -36,6 +39,7 @@ namespace Monai.Deploy.Security.Authentication.Extensions
             {
                 if (httpcontext.User.HasClaim(claim.Claim, claim.Role))
                 {
+                    logger.UserClaimFound(claim.Claim, claim.Role);
                     return new List<string> { "all" };
                 }
             }
@@ -44,6 +48,7 @@ namespace Monai.Deploy.Security.Authentication.Extensions
             {
                 if (httpcontext.User.HasClaim(claim.Claim, claim.Role))
                 {
+                    logger.UserClaimFound(claim.Claim, claim.Role);
                     return claim.Endpoints!;
                 }
             }

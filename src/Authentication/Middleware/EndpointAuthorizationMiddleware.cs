@@ -41,39 +41,39 @@ namespace Monai.Deploy.Security.Authentication.Middleware
             _logger = logger;
         }
 
-        public async Task InvokeAsync(HttpContext httpcontext)
+        public async Task InvokeAsync(HttpContext httpContext)
         {
             if (_options.Value.BypassAuth(_logger))
             {
-                await _next(httpcontext).ConfigureAwait(false);
+                await _next(httpContext).ConfigureAwait(false);
                 return;
             }
 
-            if (httpcontext.User is not null
-                && httpcontext.User.Identity is not null
-                && httpcontext.User.Identity.IsAuthenticated)
+            if (httpContext.User is not null
+                && httpContext.User.Identity is not null
+                && httpContext.User.Identity.IsAuthenticated)
             {
-                if (httpcontext.GetRouteValue("controller") is string controller)
+                if (httpContext.GetRouteValue("controller") is string controller)
                 {
-                    _logger.UserAccessingController(httpcontext.User.Identity.Name, controller);
-                    var validEndpoints = httpcontext.GetValidEndpoints(_options.Value.OpenId!.Claims!.AdminClaims!, _options.Value.OpenId!.Claims!.UserClaims!);
+                    _logger.UserAccessingController(httpContext.User.Identity.Name, controller);
+                    var validEndpoints = httpContext.GetValidEndpoints(_logger, _options.Value.OpenId!.Claims!.AdminClaims!, _options.Value.OpenId!.Claims!.UserClaims!);
                     var result = validEndpoints.Any(e => e.Equals(controller, StringComparison.InvariantCultureIgnoreCase)) || validEndpoints.Contains("all");
 
                     if (result is false)
                     {
-                        _logger.UserAccessDenied(httpcontext.User.Identity.Name, string.Join(',', validEndpoints));
-                        httpcontext.Response.StatusCode = (int)HttpStatusCode.Forbidden;
+                        _logger.UserAccessDenied(httpContext.User.Identity.Name, string.Join(',', validEndpoints));
+                        httpContext.Response.StatusCode = (int)HttpStatusCode.Forbidden;
 
-                        await httpcontext.Response.CompleteAsync().ConfigureAwait(false);
+                        await httpContext.Response.CompleteAsync().ConfigureAwait(false);
 
                         return;
                     }
                 }
-                await _next(httpcontext).ConfigureAwait(false);
+                await _next(httpContext).ConfigureAwait(false);
             }
             else
             {
-                httpcontext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                httpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
         }
     }

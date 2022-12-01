@@ -26,7 +26,10 @@ namespace Monai.Deploy.WorkflowManager.Logging
         [LoggerMessage(EventId = 500001, Level = LogLevel.Debug, Message = "User '{user}' attempting to access controller '{controller}'.")]
         public static partial void UserAccessingController(this ILogger logger, string? user, string controller);
 
-        [LoggerMessage(EventId = 500002, Level = LogLevel.Debug, Message = "User '{user}' access denied due to allowed permissions: '{permissions}'.")]
+        [LoggerMessage(EventId = 500002, Level = LogLevel.Debug, Message = "User '{user}' access denied due to limited permissions: '{permissions}'.")]
         public static partial void UserAccessDenied(this ILogger logger, string? user, string? permissions);
+
+        [LoggerMessage(EventId = 500003, Level = LogLevel.Debug, Message = "User claim {claim}={value}.")]
+        public static partial void UserClaimFound(this ILogger logger, string? claim, string? value);
     }
 }
