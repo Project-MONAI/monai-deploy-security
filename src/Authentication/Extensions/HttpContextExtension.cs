@@ -46,7 +46,6 @@ namespace Monai.Deploy.Security.Authentication.Extensions
                 {
                     return claim.Endpoints!;
                 }
-
             }
 
             return new List<string>();

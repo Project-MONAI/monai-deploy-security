@@ -37,10 +37,10 @@ namespace Monai.Deploy.Security.Authentication.Tests
                 SigningCredentials = new SigningCredentials(SecurityKey, SecurityAlgorithms.HmacSha256Signature);
             }
 
-            public static string GenerateJwtToken(string role)
+            public static string GenerateJwtToken(string role, int expiresInMinutes = 5)
             {
                 var claims = new[] { new Claim("user_roles", role) };
-                return TokenHandler.WriteToken(new JwtSecurityToken(Issuer, "monai-app", claims, null, DateTime.UtcNow.AddMinutes(20), SigningCredentials));
+                return TokenHandler.WriteToken(new JwtSecurityToken(Issuer, "monai-app", claims, null, DateTime.UtcNow.AddMinutes(expiresInMinutes), SigningCredentials));
             }
         }
     }
