@@ -20,19 +20,19 @@ namespace Monai.Deploy.Security.Authentication.Configurations
 {
     public class OpenIdOptions
     {
-        [ConfigurationKeyName("ServerRealm")]
+        [ConfigurationKeyName("realm")]
         public string? ServerRealm { get; set; }
 
-        [ConfigurationKeyName("ServerRealmKey")]
+        [ConfigurationKeyName("realmKey")]
         public string? ServerRealmKey { get; set; }
 
-        [ConfigurationKeyName("ClientId")]
+        [ConfigurationKeyName("clientId")]
         public string? ClientId { get; set; }
 
-        [ConfigurationKeyName("ClaimMappings")]
+        [ConfigurationKeyName("claimMappings")]
         public ClaimMappings? Claims { get; set; }
 
-        [ConfigurationKeyName("Audiences")]
+        [ConfigurationKeyName("audiences")]
         public IList<string>? Audiences { get; set; }
     }
 }

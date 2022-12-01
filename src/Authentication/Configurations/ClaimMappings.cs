@@ -20,10 +20,10 @@ namespace Monai.Deploy.Security.Authentication.Configurations
 {
     public class ClaimMappings
     {
-        [ConfigurationKeyName("UserClaims")]
+        [ConfigurationKeyName("userClaims")]
         public List<ClaimMapping>? UserClaims { get; set; }
 
-        [ConfigurationKeyName("AdminClaims")]
+        [ConfigurationKeyName("adminClaims")]
         public List<ClaimMapping>? AdminClaims { get; set; }
     }
 
@@ -32,8 +32,8 @@ namespace Monai.Deploy.Security.Authentication.Configurations
         [ConfigurationKeyName("claim")]
         public string Claim { get; set; } = string.Empty;
 
-        [ConfigurationKeyName("role")]
-        public string Role { get; set; } = string.Empty;
+        [ConfigurationKeyName("roles")]
+        public List<string> Roles { get; set; } = new List<string>();
 
         [ConfigurationKeyName("endpoints")]
         public List<string>? Endpoints { get; set; } = default;

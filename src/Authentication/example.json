@@ -10,18 +10,19 @@
         "UserClaims": [
           {
             "claim": "user_roles",
-            "role": "monai-deploy-user",
+            "roles": [ "monai-deploy-user" ],
             "endpoints": [ "test" ]
           },
           {
-            "user_roles": "pacs-admins",
+            "user_roles": "user_roles",
+            "roles": [ "pacs-admins" ],
             "endpoints": [ "config" ]
           }
         ],
         "AdminClaims": [
           {
             "claim": "user_roles",
-            "role": "monai-role-admin"
+            "role": [ "monai-role-admin" ]
           }
         ]
       }

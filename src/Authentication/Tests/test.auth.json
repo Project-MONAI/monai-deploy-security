@@ -1,28 +1,28 @@
 ﻿{
   "MonaiDeployAuthentication": {
-    "BypassAuthentication": false,
-    "OpenId": {
-      "ServerRealm": "TEST-REALM",
-      "ServerRealmKey": "l9ZRlbMQBt9k1klUUrlWFuke8WbqnEde",
-      "Audiences": [ "monai-app" ],
-      "ClientId": "monai-app-test",
-      "ClaimMappings": {
-        "UserClaims": [
+    "bypassAuthentication": false,
+    "openId": {
+      "realm": "TEST-REALM",
+      "realmKey": "l9ZRlbMQBt9k1klUUrlWFuke8WbqnEde",
+      "audiences": [ "monai-app" ],
+      "clientId": "monai-app-test",
+      "claimMappings": {
+        "userClaims": [
           {
             "claim": "user_roles",
-            "role": "role-with-test",
+            "roles": [ "role-with-test" ],
             "endpoints": [ "test" ]
           },
           {
             "claim": "user_roles",
-            "roles": "role-without-test",
+            "roles": [ "role-without-test" ],
             "endpoints": [ "no-test" ]
           }
         ],
-        "AdminClaims": [
+        "adminClaims": [
           {
             "claim": "user_roles",
-            "role": "monai-role-admin"
+            "roles": [ "monai-role-admin" ]
           }
         ]
       }

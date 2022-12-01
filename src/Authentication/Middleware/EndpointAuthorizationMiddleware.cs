@@ -57,7 +57,7 @@ namespace Monai.Deploy.Security.Authentication.Middleware
                 {
                     _logger.UserAccessingController(httpContext.User.Identity.Name, controller);
                     var validEndpoints = httpContext.GetValidEndpoints(_logger, _options.Value.OpenId!.Claims!.AdminClaims!, _options.Value.OpenId!.Claims!.UserClaims!);
-                    var result = validEndpoints.Any(e => e.Equals(controller, StringComparison.InvariantCultureIgnoreCase)) || validEndpoints.Contains("all");
+                    var result = validEndpoints.Any(e => e.Equals(controller, StringComparison.InvariantCultureIgnoreCase)) || validEndpoints.Contains("*");
 
                     if (result is false)
                     {

@@ -24,10 +24,10 @@ namespace Monai.Deploy.Security.Authentication.Configurations
 {
     public class AuthenticationOptions
     {
-        [ConfigurationKeyName("BypassAuthentication")]
+        [ConfigurationKeyName("bypassAuthentication")]
         public bool? BypassAuthentication { get; set; }
 
-        [ConfigurationKeyName("OpenId")]
+        [ConfigurationKeyName("openId")]
         public OpenIdOptions? OpenId { get; set; }
 
         public bool BypassAuth(ILogger logger)
