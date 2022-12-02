@@ -44,10 +44,6 @@ namespace Monai.Deploy.Security.Authentication.Configurations
             {
                 throw new InvalidOperationException("openId configuration is invalid.");
             }
-            if (OpenId.Claims is null || OpenId.Claims.UserClaims!.IsNullOrEmpty() || OpenId.Claims.AdminClaims!.IsNullOrEmpty())
-            {
-                throw new InvalidOperationException("No claimMappings defined for OpenId.");
-            }
             if (string.IsNullOrWhiteSpace(OpenId.ClientId))
             {
                 throw new InvalidOperationException("No clientId defined for OpenId.");
@@ -60,8 +56,44 @@ namespace Monai.Deploy.Security.Authentication.Configurations
             {
                 throw new InvalidOperationException("No realm defined for OpenId.");
             }
+            if (OpenId.Claims is null || OpenId.Claims.UserClaims!.IsNullOrEmpty() || OpenId.Claims.AdminClaims!.IsNullOrEmpty())
+            {
+                throw new InvalidOperationException("No claimMappings defined for OpenId.");
+            }
+
+            ValidateClaims(OpenId.Claims.UserClaims!, true);
+            ValidateClaims(OpenId.Claims.AdminClaims!, false);
 
             return false;
+        }
+
+        private void ValidateClaims(List<ClaimMapping> claims, bool validateEndpoints)
+        {
+            foreach (var claim in claims)
+            {
+                if (string.IsNullOrWhiteSpace(claim.ClaimType))
+                {
+                    throw new InvalidOperationException("Value for claimType is invalid.");
+                }
+
+                if (claim.ClaimValues.IsNullOrEmpty())
+                {
+                    throw new InvalidOperationException("Value for claimType is invalid.");
+                }
+
+                foreach (var claimValue in claim.ClaimValues)
+                {
+                    if (string.IsNullOrWhiteSpace(claimValue))
+                    {
+                        throw new InvalidOperationException($"Invalid claimValue for {claim.ClaimType}.");
+                    }
+                }
+
+                if (validateEndpoints && claim.Endpoints.IsNullOrEmpty())
+                {
+                    throw new InvalidOperationException("Value for claimType is invalid.");
+                }
+            }
         }
     }
 }

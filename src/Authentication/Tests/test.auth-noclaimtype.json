@@ -1,0 +1,27 @@
+﻿{
+  "MonaiDeployAuthentication": {
+    "bypassAuthentication": false,
+    "openId": {
+      "realm": "TEST-REALM",
+      "realmKey": "l9ZRlbMQBt9k1klUUrlWFuke8WbqnEde",
+      "audiences": [ "monai-app" ],
+      "roleClaimType": "roles",
+      "clientId": "monai-app-test",
+      "claimMappings": {
+        "userClaims": [
+          {
+            "claimType": "",
+            "claimValues": [ "role-with-test" ],
+            "endpoints": [ "test" ]
+          }
+        ],
+        "adminClaims": [
+          {
+            "claimType": "",
+            "claimValues": [ "monai-role-admin" ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
 
 namespace Monai.Deploy.Security.Authentication.Configurations
@@ -36,6 +37,9 @@ namespace Monai.Deploy.Security.Authentication.Configurations
         public IList<string>? Audiences { get; set; }
 
         [ConfigurationKeyName("roleClaimType")]
-        public string RoleClaimType { get; set; } = "roles";
+        public string RoleClaimType { get; set; } = ClaimTypes.Role;
+
+        [ConfigurationKeyName("clearDefaultRoleMappigns")]
+        public bool ClearDefaultRoleMappigns { get; set; } = true;
     }
 }
