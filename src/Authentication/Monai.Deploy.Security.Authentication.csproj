@@ -40,8 +40,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>MINIO plug-in for MONAI Deploy Security Service.</Description>
     <Copyright>MONAI Consortium</Copyright>
-    <PackageProjectUrl>https://github.com/Project-MONAI/monai-deploy-storage</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Project-MONAI/monai-deploy-storage</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Project-MONAI/monai-deploy-security</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Project-MONAI/monai-deploy-security</RepositoryUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>

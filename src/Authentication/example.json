@@ -1,25 +1,23 @@
 ﻿{
   "MonaiDeployAuthentication": {
-    "BypassAuthentication": false,
-    "OpenId": {
-      "ServerRealm": "TEST-REALM",
-      "ServerRealmKey": "EncryptionKey",
-      "ClientId": "monai-app",
-      "Audiences": [ "monai-deploy" ],
-      "ClaimMappings": {
-        "UserClaims": [
+    "bypassAuthentication": false,
+    "openId": {
+      "realm": "TEST-REALM",
+      "realmKey": "EncryptionKey",
+      "clientId": "monai-app",
+      "audiences": [ "monai-deploy" ],
+      "claimMappings": {
+        "userClaims": [
           {
-            "claimType": "user_roles",
-            "claimValues": [ "monai-deploy-user" ],
-            "endpoints": [ "test" ]
+            "user_roles": "monai-deploy-users",
+            "endpoints": [ "payloads", "workflows", "workflowinstances", "tasks" ]
           },
           {
-            "claimType": "user_roles",
-            "claimValues": [ "pacs-admins" ],
+            "user_roles": "pacs-admins",
             "endpoints": [ "config" ]
           }
         ],
-        "AdminClaims": [
+        "adminClaims": [
           {
             "claimType": "user_roles",
             "claimValues": [ "monai-role-admin" ]
