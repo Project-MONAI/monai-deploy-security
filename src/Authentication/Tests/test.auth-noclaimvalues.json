@@ -11,19 +11,12 @@
         "userClaims": [
           {
             "claimType": "user_roles",
-            "claimValues": [ "role-with-test" ],
             "endpoints": [ "test" ]
-          },
-          {
-            "claimType": "user_roles",
-            "claimValues": [ "role-without-test" ],
-            "endpoints": [ "no-test" ]
           }
         ],
         "adminClaims": [
           {
             "claimType": "user_roles",
-            "claimValues": [ "monai-role-admin" ]
           }
         ]
       }

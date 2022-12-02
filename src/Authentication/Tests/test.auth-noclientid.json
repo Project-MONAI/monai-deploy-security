@@ -6,7 +6,6 @@
       "realmKey": "l9ZRlbMQBt9k1klUUrlWFuke8WbqnEde",
       "audiences": [ "monai-app" ],
       "roleClaimType": "roles",
-      "clientId": "monai-app-test",
       "claimMappings": {
         "userClaims": [
           {
