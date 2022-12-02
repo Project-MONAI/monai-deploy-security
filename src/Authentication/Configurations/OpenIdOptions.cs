@@ -14,25 +14,32 @@
  * limitations under the License.
  */
 
+using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
 
 namespace Monai.Deploy.Security.Authentication.Configurations
 {
     public class OpenIdOptions
     {
-        [ConfigurationKeyName("ServerRealm")]
-        public string? ServerRealm { get; set; }
+        [ConfigurationKeyName("realm")]
+        public string? Realm { get; set; }
 
-        [ConfigurationKeyName("ServerRealmKey")]
-        public string? ServerRealmKey { get; set; }
+        [ConfigurationKeyName("realmKey")]
+        public string? RealmKey { get; set; }
 
-        [ConfigurationKeyName("ClientId")]
+        [ConfigurationKeyName("clientId")]
         public string? ClientId { get; set; }
 
-        [ConfigurationKeyName("Claims")]
-        public Claims? Claims { get; set; }
+        [ConfigurationKeyName("claimMappings")]
+        public ClaimMappings? Claims { get; set; }
 
-        [ConfigurationKeyName("Audiences")]
+        [ConfigurationKeyName("audiences")]
         public IList<string>? Audiences { get; set; }
+
+        [ConfigurationKeyName("roleClaimType")]
+        public string RoleClaimType { get; set; } = ClaimTypes.Role;
+
+        [ConfigurationKeyName("clearDefaultRoleMappigns")]
+        public bool ClearDefaultRoleMappigns { get; set; } = true;
     }
 }

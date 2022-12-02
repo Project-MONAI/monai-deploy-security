@@ -16,6 +16,9 @@
 
 using Ardalis.GuardClauses;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Monai.Deploy.Security.Authentication.Middleware;
+using Monai.Deploy.WorkflowManager.Logging;
 
 namespace Monai.Deploy.Security.Authentication.Extensions
 {
@@ -24,32 +27,46 @@ namespace Monai.Deploy.Security.Authentication.Extensions
         /// <summary>
         /// Gets endpoints specified in config for roles in claims.
         /// </summary>
-        /// <param name="httpcontext"></param>
+        /// <param name="httpContext"></param>
         /// <param name="requiredClaims"></param>
         /// <returns></returns>
-        public static List<string> GetValidEndpoints(this HttpContext httpcontext, List<Configurations.Claim> adminClaims, List<Configurations.Claim> userClaims)
+        public static List<string> GetValidEndpoints(this HttpContext httpContext, ILogger<EndpointAuthorizationMiddleware> logger, List<Configurations.ClaimMapping> adminClaims, List<Configurations.ClaimMapping> userClaims)
         {
             Guard.Against.Null(adminClaims);
             Guard.Against.Null(userClaims);
 
+            foreach (var claim in httpContext.User.Claims)
+            {
+                logger.UserClaimFound(claim.Type, claim.Value);
+
+            }
+
             foreach (var claim in adminClaims!)
             {
-                if (httpcontext.User.HasClaim(AuthKeys.UserRoles, claim.UserRoles!))
+                foreach (var role in claim.ClaimValues)
                 {
-                    return new List<string> { "all" };
+                    logger.CheckingUserClaim(claim.ClaimType, role);
+                    if (httpContext.User.HasClaim(claim.ClaimType, role))
+                    {
+                        return new List<string> { "*" };
+                    }
                 }
             }
 
+            var endpoints = new List<string>();
             foreach (var claim in userClaims!)
             {
-                if (httpcontext.User.HasClaim(AuthKeys.UserRoles, claim.UserRoles!))
+                foreach (var role in claim.ClaimValues)
                 {
-                    return claim.Endpoints!;
+                    logger.CheckingUserClaim(claim.ClaimType, role);
+                    if (httpContext.User.HasClaim(claim.ClaimType, role))
+                    {
+                        endpoints.AddRange(claim.Endpoints!);
+                    }
                 }
-
             }
 
-            return new List<string>();
+            return endpoints.Distinct().ToList();
         }
     }
 }

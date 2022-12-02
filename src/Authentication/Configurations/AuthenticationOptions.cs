@@ -24,10 +24,10 @@ namespace Monai.Deploy.Security.Authentication.Configurations
 {
     public class AuthenticationOptions
     {
-        [ConfigurationKeyName("BypassAuthentication")]
+        [ConfigurationKeyName("bypassAuthentication")]
         public bool? BypassAuthentication { get; set; }
 
-        [ConfigurationKeyName("OpenId")]
+        [ConfigurationKeyName("openId")]
         public OpenIdOptions? OpenId { get; set; }
 
         public bool BypassAuth(ILogger logger)
@@ -42,26 +42,58 @@ namespace Monai.Deploy.Security.Authentication.Configurations
 
             if (OpenId is null)
             {
-                throw new InvalidOperationException("OpenId configuration is invalid.");
-            }
-            if (OpenId.Claims is null || OpenId.Claims.RequiredUserClaims!.IsNullOrEmpty() || OpenId.Claims.RequiredAdminClaims!.IsNullOrEmpty())
-            {
-                throw new InvalidOperationException("No claims defined for OpenId.");
+                throw new InvalidOperationException("openId configuration is invalid.");
             }
             if (string.IsNullOrWhiteSpace(OpenId.ClientId))
             {
-                throw new InvalidOperationException("No ClientId defined for OpenId.");
+                throw new InvalidOperationException("No clientId defined for OpenId.");
             }
-            if (string.IsNullOrWhiteSpace(OpenId.ServerRealmKey))
+            if (string.IsNullOrWhiteSpace(OpenId.RealmKey))
             {
-                throw new InvalidOperationException("No ServerRealmKey defined for OpenId.");
+                throw new InvalidOperationException("No realmKey defined for OpenId.");
             }
-            if (string.IsNullOrWhiteSpace(OpenId.ServerRealm))
+            if (string.IsNullOrWhiteSpace(OpenId.Realm))
             {
-                throw new InvalidOperationException("No ServerRealm defined for OpenId.");
+                throw new InvalidOperationException("No realm defined for OpenId.");
+            }
+            if (OpenId.Claims is null || OpenId.Claims.UserClaims!.IsNullOrEmpty() || OpenId.Claims.AdminClaims!.IsNullOrEmpty())
+            {
+                throw new InvalidOperationException("No claimMappings defined for OpenId.");
             }
 
+            ValidateClaims(OpenId.Claims.UserClaims!, true);
+            ValidateClaims(OpenId.Claims.AdminClaims!, false);
+
             return false;
+        }
+
+        private void ValidateClaims(List<ClaimMapping> claims, bool validateEndpoints)
+        {
+            foreach (var claim in claims)
+            {
+                if (string.IsNullOrWhiteSpace(claim.ClaimType))
+                {
+                    throw new InvalidOperationException("Value for claimType is invalid.");
+                }
+
+                if (claim.ClaimValues.IsNullOrEmpty())
+                {
+                    throw new InvalidOperationException("Value for claimType is invalid.");
+                }
+
+                foreach (var claimValue in claim.ClaimValues)
+                {
+                    if (string.IsNullOrWhiteSpace(claimValue))
+                    {
+                        throw new InvalidOperationException($"Invalid claimValue for {claim.ClaimType}.");
+                    }
+                }
+
+                if (validateEndpoints && claim.Endpoints.IsNullOrEmpty())
+                {
+                    throw new InvalidOperationException("Value for claimType is invalid.");
+                }
+            }
         }
     }
 }

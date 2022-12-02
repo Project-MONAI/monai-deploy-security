@@ -28,6 +28,14 @@ namespace Monai.Deploy.Security.Authentication.Tests
         [Theory]
         [InlineData("test.noauth.json")]
         [InlineData("test.emptyopenid.json")]
+        [InlineData("test.auth-noclaims.json")]
+        [InlineData("test.auth-noclientid.json")]
+        [InlineData("test.auth-norealm.json")]
+        [InlineData("test.auth-norealmkey.json")]
+        [InlineData("test.auth-noclaimtype.json")]
+        [InlineData("test.auth-noclaimvalues.json")]
+        [InlineData("test.auth-whitespaceclaimvalues.json")]
+        [InlineData("test.auth-noendpoints.json")]
         public async Task GivenConfigurationFilesIsBad_ExpectExceptionToBeThrown(string configFile)
         {
             await Assert.ThrowsAsync<InvalidOperationException>(async () =>
@@ -109,6 +117,23 @@ namespace Monai.Deploy.Security.Authentication.Tests
             Assert.Equal(HttpStatusCode.Forbidden, responseMessage.StatusCode);
         }
 
+        [Theory]
+        [InlineData("role-with-test")]
+        public async Task GivenConfigurationFileWithOpenIdConfigured_WhenUserProvidesAnExpiredToken_ExpectToDenyRequest(string role)
+        {
+            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.auth.json")).StartAsync().ConfigureAwait(false);
+
+            var server = host.GetTestServer();
+            server.BaseAddress = new Uri("https://example.com/");
+
+            var token = MockJwtTokenHandler.GenerateJwtToken(role, -5);
+
+            var client = server.CreateClient();
+            client.DefaultRequestHeaders.Add("Authorization", $"{JwtBearerDefaults.AuthenticationScheme} {token}");
+            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
+
+            Assert.Equal(HttpStatusCode.Unauthorized, responseMessage.StatusCode);
+        }
 
         private static Action<IWebHostBuilder> SetupWebServer(string configFile) => webBuilder =>
         {

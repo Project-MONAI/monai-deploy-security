@@ -18,21 +18,24 @@ using Microsoft.Extensions.Configuration;
 
 namespace Monai.Deploy.Security.Authentication.Configurations
 {
-    public class Claims
+    public class ClaimMappings
     {
-        [ConfigurationKeyName("RequiredUserClaims")]
-        public List<Claim>? RequiredUserClaims { get; set; }
+        [ConfigurationKeyName("userClaims")]
+        public List<ClaimMapping>? UserClaims { get; set; }
 
-        [ConfigurationKeyName("RequiredAdminClaims")]
-        public List<Claim>? RequiredAdminClaims { get; set; }
+        [ConfigurationKeyName("adminClaims")]
+        public List<ClaimMapping>? AdminClaims { get; set; }
     }
 
-    public class Claim
+    public class ClaimMapping
     {
-        [ConfigurationKeyName("user_roles")]
-        public string? UserRoles { get; set; }
+        [ConfigurationKeyName("claimType")]
+        public string ClaimType { get; set; } = string.Empty;
+
+        [ConfigurationKeyName("claimValues")]
+        public List<string> ClaimValues { get; set; } = new List<string>();
 
         [ConfigurationKeyName("endpoints")]
-        public List<string>? Endpoints { get; set; }
+        public List<string>? Endpoints { get; set; } = default;
     }
 }
