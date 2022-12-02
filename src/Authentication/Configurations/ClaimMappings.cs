@@ -29,11 +29,11 @@ namespace Monai.Deploy.Security.Authentication.Configurations
 
     public class ClaimMapping
     {
-        [ConfigurationKeyName("claim")]
-        public string Claim { get; set; } = string.Empty;
+        [ConfigurationKeyName("claimType")]
+        public string ClaimType { get; set; } = string.Empty;
 
-        [ConfigurationKeyName("roles")]
-        public List<string> Roles { get; set; } = new List<string>();
+        [ConfigurationKeyName("claimValues")]
+        public List<string> ClaimValues { get; set; } = new List<string>();
 
         [ConfigurationKeyName("endpoints")]
         public List<string>? Endpoints { get; set; } = default;

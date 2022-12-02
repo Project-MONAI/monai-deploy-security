@@ -43,10 +43,10 @@ namespace Monai.Deploy.Security.Authentication.Extensions
 
             foreach (var claim in adminClaims!)
             {
-                foreach (var role in claim.Roles)
+                foreach (var role in claim.ClaimValues)
                 {
-                    logger.CheckingUserClaim(claim.Claim, role);
-                    if (httpContext.User.HasClaim(claim.Claim, role))
+                    logger.CheckingUserClaim(claim.ClaimType, role);
+                    if (httpContext.User.HasClaim(claim.ClaimType, role))
                     {
                         return new List<string> { "*" };
                     }
@@ -56,10 +56,10 @@ namespace Monai.Deploy.Security.Authentication.Extensions
             var endpoints = new List<string>();
             foreach (var claim in userClaims!)
             {
-                foreach (var role in claim.Roles)
+                foreach (var role in claim.ClaimValues)
                 {
-                    logger.CheckingUserClaim(claim.Claim, role);
-                    if (httpContext.User.HasClaim(claim.Claim, role))
+                    logger.CheckingUserClaim(claim.ClaimType, role);
+                    if (httpContext.User.HasClaim(claim.ClaimType, role))
                     {
                         endpoints.AddRange(claim.Endpoints!);
                     }

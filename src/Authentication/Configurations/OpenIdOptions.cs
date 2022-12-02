@@ -21,10 +21,10 @@ namespace Monai.Deploy.Security.Authentication.Configurations
     public class OpenIdOptions
     {
         [ConfigurationKeyName("realm")]
-        public string? ServerRealm { get; set; }
+        public string? Realm { get; set; }
 
         [ConfigurationKeyName("realmKey")]
-        public string? ServerRealmKey { get; set; }
+        public string? RealmKey { get; set; }
 
         [ConfigurationKeyName("clientId")]
         public string? ClientId { get; set; }
@@ -34,5 +34,8 @@ namespace Monai.Deploy.Security.Authentication.Configurations
 
         [ConfigurationKeyName("audiences")]
         public IList<string>? Audiences { get; set; }
+
+        [ConfigurationKeyName("roleClaimType")]
+        public string RoleClaimType { get; set; } = "roles";
     }
 }

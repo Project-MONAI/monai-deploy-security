@@ -28,6 +28,10 @@ namespace Monai.Deploy.Security.Authentication.Tests
         [Theory]
         [InlineData("test.noauth.json")]
         [InlineData("test.emptyopenid.json")]
+        [InlineData("test.auth-noclaims.json")]
+        [InlineData("test.auth-noclientid.json")]
+        [InlineData("test.auth-norealm.json")]
+        [InlineData("test.auth-norealmkey.json")]
         public async Task GivenConfigurationFilesIsBad_ExpectExceptionToBeThrown(string configFile)
         {
             await Assert.ThrowsAsync<InvalidOperationException>(async () =>

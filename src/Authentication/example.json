@@ -9,20 +9,20 @@
       "ClaimMappings": {
         "UserClaims": [
           {
-            "claim": "user_roles",
-            "roles": [ "monai-deploy-user" ],
+            "claimType": "user_roles",
+            "claimValues": [ "monai-deploy-user" ],
             "endpoints": [ "test" ]
           },
           {
-            "user_roles": "user_roles",
-            "roles": [ "pacs-admins" ],
+            "claimType": "user_roles",
+            "claimValues": [ "pacs-admins" ],
             "endpoints": [ "config" ]
           }
         ],
         "AdminClaims": [
           {
-            "claim": "user_roles",
-            "role": [ "monai-role-admin" ]
+            "claimType": "user_roles",
+            "claimValues": [ "monai-role-admin" ]
           }
         ]
       }

@@ -55,14 +55,15 @@ namespace Monai.Deploy.Security.Authentication.Extensions
             })
             .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, AuthKeys.OpenId, options =>
             {
-                options.Authority = configurations.Value.OpenId!.ServerRealm;
-                options.Audience = configurations.Value.OpenId!.ServerRealm;
+                options.Authority = configurations.Value.OpenId!.Realm;
+                options.Audience = configurations.Value.OpenId!.Realm;
                 options.RequireHttpsMetadata = false;
 
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configurations.Value.OpenId!.ServerRealmKey!)),
-                    ValidIssuer = configurations.Value.OpenId.ServerRealm,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configurations.Value.OpenId!.RealmKey!)),
+                    RoleClaimType = configurations.Value.OpenId.RoleClaimType,
+                    ValidIssuer = configurations.Value.OpenId.Realm,
                     ValidAudiences = configurations.Value.OpenId.Audiences,
                     ValidateIssuerSigningKey = true,
                     ValidateIssuer = true,

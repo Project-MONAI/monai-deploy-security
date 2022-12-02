@@ -42,23 +42,23 @@ namespace Monai.Deploy.Security.Authentication.Configurations
 
             if (OpenId is null)
             {
-                throw new InvalidOperationException("OpenId configuration is invalid.");
+                throw new InvalidOperationException("openId configuration is invalid.");
             }
             if (OpenId.Claims is null || OpenId.Claims.UserClaims!.IsNullOrEmpty() || OpenId.Claims.AdminClaims!.IsNullOrEmpty())
             {
-                throw new InvalidOperationException("No claims defined for OpenId.");
+                throw new InvalidOperationException("No claimMappings defined for OpenId.");
             }
             if (string.IsNullOrWhiteSpace(OpenId.ClientId))
             {
-                throw new InvalidOperationException("No ClientId defined for OpenId.");
+                throw new InvalidOperationException("No clientId defined for OpenId.");
             }
-            if (string.IsNullOrWhiteSpace(OpenId.ServerRealmKey))
+            if (string.IsNullOrWhiteSpace(OpenId.RealmKey))
             {
-                throw new InvalidOperationException("No ServerRealmKey defined for OpenId.");
+                throw new InvalidOperationException("No realmKey defined for OpenId.");
             }
-            if (string.IsNullOrWhiteSpace(OpenId.ServerRealm))
+            if (string.IsNullOrWhiteSpace(OpenId.Realm))
             {
-                throw new InvalidOperationException("No ServerRealm defined for OpenId.");
+                throw new InvalidOperationException("No realm defined for OpenId.");
             }
 
             return false;
