@@ -54,31 +54,38 @@ namespace Monai.Deploy.Security.Authentication.Extensions
                 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("role");
                 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("roles");
             }
-
-            services
-                .AddAuthentication(options =>
-                {
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
-                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, AuthKeys.OpenId, options =>
-                {
-                    options.Authority = configurations.Value.OpenId!.Realm;
-                    options.Audience = configurations.Value.OpenId!.Realm;
-                    options.RequireHttpsMetadata = false;
-
-                    options.TokenValidationParameters = new TokenValidationParameters
+            if (configurations.Value.BasicAuthEnabled(logger))
+            {
+                services.AddAuthentication(options => options.DefaultAuthenticateScheme = AuthKeys.BasicAuth)
+                    .AddScheme<AuthenticationSchemeOptions, BypassAuthenticationHandler>(AuthKeys.BasicAuth, null);
+            }
+            else
+            {
+                services
+                    .AddAuthentication(options =>
                     {
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configurations.Value.OpenId!.RealmKey!)),
-                        RoleClaimType = configurations.Value.OpenId.RoleClaimType,
-                        ValidIssuer = configurations.Value.OpenId.Realm,
-                        ValidAudiences = configurations.Value.OpenId.Audiences,
-                        ValidateIssuerSigningKey = true,
-                        ValidateIssuer = true,
-                        ValidateLifetime = true,
-                        ValidateAudience = true,
-                    };
-                });
+                        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    })
+                    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, AuthKeys.OpenId, options =>
+                    {
+                        options.Authority = configurations.Value.OpenId!.Realm;
+                        options.Audience = configurations.Value.OpenId!.Realm;
+                        options.RequireHttpsMetadata = false;
+
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configurations.Value.OpenId!.RealmKey!)),
+                            RoleClaimType = configurations.Value.OpenId.RoleClaimType,
+                            ValidIssuer = configurations.Value.OpenId.Realm,
+                            ValidAudiences = configurations.Value.OpenId.Audiences,
+                            ValidateIssuerSigningKey = true,
+                            ValidateIssuer = true,
+                            ValidateLifetime = true,
+                            ValidateAudience = true,
+                        };
+                    });
+            }
 
             services.AddAuthorization();
             return services;

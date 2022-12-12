@@ -25,5 +25,6 @@ namespace Monai.Deploy.Security.Authentication.Extensions
 
         // Configuration Keys
         public const string OpenId = "OpenId";
+        public const string BasicAuth = "BasicAuth";
     }
 }

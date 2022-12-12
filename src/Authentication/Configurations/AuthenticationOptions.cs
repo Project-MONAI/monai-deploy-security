@@ -30,6 +30,9 @@ namespace Monai.Deploy.Security.Authentication.Configurations
         [ConfigurationKeyName("openId")]
         public OpenIdOptions? OpenId { get; set; }
 
+        [ConfigurationKeyName("basicAuth")]
+        public BasicAuthOptions? BasicAuth { get; set; }
+
         public bool BypassAuth(ILogger logger)
         {
             Guard.Against.Null(logger);
@@ -38,6 +41,11 @@ namespace Monai.Deploy.Security.Authentication.Configurations
             {
                 logger.BypassAuthentication();
                 return true;
+            }
+
+            if (BasicAuthEnabled(logger))
+            {
+                return false;
             }
 
             if (OpenId is null)
@@ -64,6 +72,15 @@ namespace Monai.Deploy.Security.Authentication.Configurations
             ValidateClaims(OpenId.Claims.UserClaims!, true);
             ValidateClaims(OpenId.Claims.AdminClaims!, false);
 
+            return false;
+        }
+
+        public bool BasicAuthEnabled(ILogger logger)
+        {
+            if (BasicAuth is not null && BasicAuth.Id is not null && BasicAuth.Password is not null)
+            {
+                return true;
+            }
             return false;
         }
 

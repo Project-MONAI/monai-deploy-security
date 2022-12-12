@@ -1,6 +1,9 @@
 ﻿{
   "MonaiDeployAuthentication": {
     "bypassAuthentication": false,
+    "basicAuth": {
+      "userName": "nopassword"
+    },
     "openId": {
       "realm": "TEST-REALM",
       "realmKey": "l9ZRlbMQBt9k1klUUrlWFuke8WbqnEde",
