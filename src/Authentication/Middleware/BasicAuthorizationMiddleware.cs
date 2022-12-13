@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Monai.Deploy.Security.Authentication.Configurations;
+using Monai.Deploy.Security.Authentication.Extensions;
 
 namespace Monai.Deploy.Security.Authentication.Middleware
 {
@@ -56,18 +57,21 @@ namespace Monai.Deploy.Security.Authentication.Middleware
             try
             {
                 var authHeader = AuthenticationHeaderValue.Parse(httpContext.Request.Headers["Authorization"]);
-                var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
-                var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':', 2);
-                var username = credentials[0];
-                var password = credentials[1];
-                if (string.Compare(username, _options.Value.BasicAuth.Id, false) is 0 &&
-                    string.Compare(password, _options.Value.BasicAuth.Password, false) is 0)
+                if (authHeader.Scheme == "Basic")
                 {
-                    var claims = new[] { new Claim("name", credentials[0]) };
-                    var identity = new ClaimsIdentity(claims, "Basic");
-                    var claimsPrincipal = new ClaimsPrincipal(identity);
-                    httpContext.User = claimsPrincipal;
-                    return;
+                    var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
+                    var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':', 2);
+                    var username = credentials[0];
+                    var password = credentials[1];
+                    if (string.Compare(username, _options.Value.BasicAuth.Id, false) is 0 &&
+                        string.Compare(password, _options.Value.BasicAuth.Password, false) is 0)
+                    {
+                        var claims = new[] { new Claim("name", credentials[0]) };
+                        var identity = new ClaimsIdentity(claims, "Basic");
+                        var claimsPrincipal = new ClaimsPrincipal(identity);
+                        httpContext.User = claimsPrincipal;
+                        return;
+                    }
                 }
             }
             catch (Exception ex)
