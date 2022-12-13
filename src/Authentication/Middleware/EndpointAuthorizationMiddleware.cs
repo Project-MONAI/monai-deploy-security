@@ -48,6 +48,11 @@ namespace Monai.Deploy.Security.Authentication.Middleware
                 await _next(httpContext).ConfigureAwait(false);
                 return;
             }
+            if (_options.Value.BasicAuthEnabled(_logger))
+            {
+                await _next(httpContext).ConfigureAwait(false);
+                return;
+            }
 
             if (httpContext.User is not null
                 && httpContext.User.Identity is not null

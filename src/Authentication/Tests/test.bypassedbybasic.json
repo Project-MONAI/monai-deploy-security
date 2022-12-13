@@ -1,0 +1,16 @@
+﻿{
+  "MonaiDeployAuthentication": {
+    "BypassAuthentication": false,
+    "basicAuth": {
+      "userName": "nopassword",
+      "password":  "sded"
+    },
+    "openId": {
+      "realm": "TEST-REALM",
+      "realmKey": "l9ZRlbMQBt9k1klUUrlWFuke8WbqnEde",
+      "audiences": [ "monai-app" ],
+      "roleClaimType": "roles",
+      "clientId": "monai-app-test"
+    }
+  }
+}
