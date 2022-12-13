@@ -14,17 +14,16 @@
  * limitations under the License.
  */
 
-namespace Monai.Deploy.Security.Authentication.Extensions
+using Microsoft.Extensions.Configuration;
+
+namespace Monai.Deploy.Security.Authentication.Configurations
 {
-    public static class AuthKeys
+    public class BasicAuthOptions
     {
-        public const string BypassSchemeName = "testing";
+        [ConfigurationKeyName("userName")]
+        public string? Id { get; set; }
 
-        public const string AdminPolicyName = "Admin";
-        public const string UserPolicyName = "User";
-
-        // Configuration Keys
-        public const string OpenId = "OpenId";
-        public const string BasicAuth = "BasicAuth";
+        [ConfigurationKeyName("password")]
+        public string? Password { get; set; }
     }
 }

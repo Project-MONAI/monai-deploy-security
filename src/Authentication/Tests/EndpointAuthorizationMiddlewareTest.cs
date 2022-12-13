@@ -15,6 +15,7 @@
  */
 
 using System.Net;
+using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
@@ -130,6 +131,50 @@ namespace Monai.Deploy.Security.Authentication.Tests
 
             var client = server.CreateClient();
             client.DefaultRequestHeaders.Add("Authorization", $"{JwtBearerDefaults.AuthenticationScheme} {token}");
+            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
+
+            Assert.Equal(HttpStatusCode.Unauthorized, responseMessage.StatusCode);
+        }
+
+
+        [Fact]
+        public async Task GivenConfigurationFileWithBasicConfigured_WhenUserIsNotAuthenticated_ExpectToDenyRequest()
+        {
+            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basic.json")).StartAsync().ConfigureAwait(false);
+
+            var server = host.GetTestServer();
+            server.BaseAddress = new Uri("https://example.com/");
+
+            var client = server.CreateClient();
+            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
+
+            Assert.Equal(HttpStatusCode.Unauthorized, responseMessage.StatusCode);
+        }
+
+        [Fact]
+        public async Task GivenConfigurationFileWithBasicConfigured_WhenUserIsAuthenticated_ExpectToAllowRequest()
+        {
+            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basic.json")).StartAsync().ConfigureAwait(false);
+
+            var server = host.GetTestServer();
+            server.BaseAddress = new Uri("https://example.com/");
+
+            var client = server.CreateClient();
+            client.DefaultRequestHeaders.Add("Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("user:pass"))}");
+            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
+
+            Assert.Equal(HttpStatusCode.OK, responseMessage.StatusCode);
+        }
+        [Fact]
+        public async Task GivenConfigurationFileWithBasicConfigured_WhenHeaderIsInvalid_ExpectToDenyRequest()
+        {
+            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basic.json")).StartAsync().ConfigureAwait(false);
+
+            var server = host.GetTestServer();
+            server.BaseAddress = new Uri("https://example.com/");
+
+            var client = server.CreateClient();
+            client.DefaultRequestHeaders.Add("Authorization", $"BasicBad {Convert.ToBase64String(Encoding.UTF8.GetBytes("user:pass"))}");
             var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
 
             Assert.Equal(HttpStatusCode.Unauthorized, responseMessage.StatusCode);

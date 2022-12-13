@@ -27,7 +27,9 @@ namespace Monai.Deploy.Security.Authentication.Extensions
         public static IApplicationBuilder UseEndpointAuthorizationMiddleware(
             this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<EndpointAuthorizationMiddleware>();
+            builder.UseMiddleware<BasicAuthorizationMiddleware>();
+            builder.UseMiddleware<EndpointAuthorizationMiddleware>();
+            return builder;
         }
     }
 }
