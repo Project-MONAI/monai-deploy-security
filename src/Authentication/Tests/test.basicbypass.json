@@ -1,0 +1,9 @@
+﻿{
+  "MonaiDeployAuthentication": {
+    "BypassAuthentication": true,
+    "basicAuth": {
+      "userName": "user",
+      "password":  "pass"
+    }
+  }
+}
