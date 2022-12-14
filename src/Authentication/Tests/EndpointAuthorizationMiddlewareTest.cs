@@ -165,6 +165,7 @@ namespace Monai.Deploy.Security.Authentication.Tests
 
             Assert.Equal(HttpStatusCode.OK, responseMessage.StatusCode);
         }
+
         [Fact]
         public async Task GivenConfigurationFileWithBasicConfigured_WhenHeaderIsInvalid_ExpectToDenyRequest()
         {
