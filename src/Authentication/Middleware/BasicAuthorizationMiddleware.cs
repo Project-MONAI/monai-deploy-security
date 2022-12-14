@@ -22,7 +22,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Monai.Deploy.Security.Authentication.Configurations;
-using Monai.Deploy.Security.Authentication.Extensions;
 
 namespace Monai.Deploy.Security.Authentication.Middleware
 {
