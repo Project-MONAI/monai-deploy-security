@@ -22,7 +22,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Monai.Deploy.Security.Authentication.Configurations;
-using Monai.Deploy.Security.Authentication.Extensions;
 
 namespace Monai.Deploy.Security.Authentication.Middleware
 {
@@ -49,7 +48,8 @@ namespace Monai.Deploy.Security.Authentication.Middleware
         public async Task InvokeAsync(HttpContext httpContext)
         {
 
-            if (_options.Value.BasicAuthEnabled(_logger) is false)
+            if ((_options.Value.BypassAuthentication.HasValue && _options.Value.BypassAuthentication.Value is true)
+                || _options.Value.BasicAuthEnabled(_logger) is false)
             {
                 await _next(httpContext).ConfigureAwait(false);
                 return;
@@ -70,6 +70,7 @@ namespace Monai.Deploy.Security.Authentication.Middleware
                         var identity = new ClaimsIdentity(claims, "Basic");
                         var claimsPrincipal = new ClaimsPrincipal(identity);
                         httpContext.User = claimsPrincipal;
+                        await _next(httpContext).ConfigureAwait(false);
                         return;
                     }
                 }

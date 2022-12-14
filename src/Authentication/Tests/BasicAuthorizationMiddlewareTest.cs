@@ -24,31 +24,14 @@ using Monai.Deploy.Security.Authentication.Extensions;
 
 namespace Monai.Deploy.Security.Authentication.Tests
 {
-    public partial class EndpointAuthorizationMiddlewareTest
+    public partial class BasicAuthorizationMiddlewareTest
     {
-        [Theory]
-        [InlineData("test.noauth.json")]
-        [InlineData("test.emptyopenid.json")]
-        [InlineData("test.auth-noclaims.json")]
-        [InlineData("test.auth-noclientid.json")]
-        [InlineData("test.auth-norealm.json")]
-        [InlineData("test.auth-norealmkey.json")]
-        [InlineData("test.auth-noclaimtype.json")]
-        [InlineData("test.auth-noclaimvalues.json")]
-        [InlineData("test.auth-whitespaceclaimvalues.json")]
-        [InlineData("test.auth-noendpoints.json")]
-        public async Task GivenConfigurationFilesIsBad_ExpectExceptionToBeThrown(string configFile)
-        {
-            await Assert.ThrowsAsync<InvalidOperationException>(async () =>
-            {
-                using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer(configFile)).StartAsync().ConfigureAwait(false);
-            }).ConfigureAwait(false);
-        }
+
 
         [Fact]
         public async Task GivenConfigurationFileToBypassAuthentication_ExpectToBypassAuthentication()
         {
-            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.bypassd.json")).StartAsync().ConfigureAwait(false);
+            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basicbypass.json")).StartAsync().ConfigureAwait(false);
 
             var server = host.GetTestServer();
             server.BaseAddress = new Uri("https://example.com/");
@@ -59,82 +42,6 @@ namespace Monai.Deploy.Security.Authentication.Tests
             Assert.True(responseMessage.IsSuccessStatusCode);
         }
 
-        [Fact]
-        public async Task GivenConfigurationFileWithOpenIdConfigured_WhenUserIsNotAuthenticated_ExpectToDenyRequest()
-        {
-            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.auth.json")).StartAsync().ConfigureAwait(false);
-
-            var server = host.GetTestServer();
-            server.BaseAddress = new Uri("https://example.com/");
-
-            var client = server.CreateClient();
-            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
-
-            Assert.Equal(HttpStatusCode.Unauthorized, responseMessage.StatusCode);
-        }
-
-        [Theory]
-        [InlineData("monai-role-admin")]
-        [InlineData("role-with-test")]
-        public async Task GivenConfigurationFileWithOpenIdConfigured_WhenUserIsAuthenticated_ExpectToServeTheRequest(string role)
-        {
-            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.auth.json")).StartAsync().ConfigureAwait(false);
-
-            var server = host.GetTestServer();
-            server.BaseAddress = new Uri("https://example.com/");
-
-            var token = MockJwtTokenHandler.GenerateJwtToken(role);
-
-            var client = server.CreateClient();
-            client.DefaultRequestHeaders.Add("Authorization", $"{JwtBearerDefaults.AuthenticationScheme} {token}");
-            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
-
-            Assert.Equal(HttpStatusCode.OK, responseMessage.StatusCode);
-
-            var data = await responseMessage.Content.ReadFromJsonAsync<List<string>>().ConfigureAwait(false);
-
-            Assert.NotNull(data);
-            Assert.Collection(data,
-                item => item.Equals("A", StringComparison.Ordinal),
-                item => item.Equals("B", StringComparison.Ordinal),
-                item => item.Equals("C", StringComparison.Ordinal));
-        }
-
-        [Theory]
-        [InlineData("role-without-test")]
-        public async Task GivenConfigurationFileWithOpenIdConfigured_WhenUserIsAuthenticatedWithoutProperRoles_ExpectToDenyRequest(string role)
-        {
-            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.auth.json")).StartAsync().ConfigureAwait(false);
-
-            var server = host.GetTestServer();
-            server.BaseAddress = new Uri("https://example.com/");
-
-            var token = MockJwtTokenHandler.GenerateJwtToken(role);
-
-            var client = server.CreateClient();
-            client.DefaultRequestHeaders.Add("Authorization", $"{JwtBearerDefaults.AuthenticationScheme} {token}");
-            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
-
-            Assert.Equal(HttpStatusCode.Forbidden, responseMessage.StatusCode);
-        }
-
-        [Theory]
-        [InlineData("role-with-test")]
-        public async Task GivenConfigurationFileWithOpenIdConfigured_WhenUserProvidesAnExpiredToken_ExpectToDenyRequest(string role)
-        {
-            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.auth.json")).StartAsync().ConfigureAwait(false);
-
-            var server = host.GetTestServer();
-            server.BaseAddress = new Uri("https://example.com/");
-
-            var token = MockJwtTokenHandler.GenerateJwtToken(role, -5);
-
-            var client = server.CreateClient();
-            client.DefaultRequestHeaders.Add("Authorization", $"{JwtBearerDefaults.AuthenticationScheme} {token}");
-            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
-
-            Assert.Equal(HttpStatusCode.Unauthorized, responseMessage.StatusCode);
-        }
 
 
         [Fact]
@@ -209,7 +116,7 @@ namespace Monai.Deploy.Security.Authentication.Tests
                             Issuer = Guid.NewGuid().ToString(),
                         };
 
-                        config.SigningKeys.Add(MockJwtTokenHandler.SecurityKey);
+                        config.SigningKeys.Add(EndpointAuthorizationMiddlewareTest.MockJwtTokenHandler.SecurityKey);
                         op.Configuration = config;
                     });
                 })
