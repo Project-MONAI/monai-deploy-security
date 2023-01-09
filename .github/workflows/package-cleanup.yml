@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/delete-package-versions@v3
+    - uses: actions/delete-package-versions@v4
       name: Monai.Deploy.Security
       with: 
         package-name: 'Monai.Deploy.Security'
