@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2022 MONAI Consortium
+ * Copyright 2023 MONAI Consortium
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,7 +106,7 @@ namespace Monai.Deploy.Security.Authentication.Configurations
                     }
                 }
 
-                if (validateEndpoints && claim.Endpoints.IsNullOrEmpty())
+                if (validateEndpoints && claim.Endpoints!.IsNullOrEmpty())
                 {
                     throw new InvalidOperationException("Value for claimType is invalid.");
                 }
