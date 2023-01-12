@@ -18,5 +18,6 @@ jobs:
       name: Monai.Deploy.Security
       with: 
         package-name: 'Monai.Deploy.Security'
+        package-type: nuget
         min-versions-to-keep: 10
         delete-only-pre-release-versions: "true"
