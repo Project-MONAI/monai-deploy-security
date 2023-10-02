@@ -1,3 +1,20 @@
+<!--
+Copyright 2023 MONAI Consortium
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+
 # Third-Party Licenses
 
 
@@ -123,14 +140,14 @@ SOFTWARE.
 
 
 <details>
-<summary>Microsoft.AspNetCore.Authentication.JwtBearer 6.0.11</summary>
+<summary>Microsoft.AspNetCore.Authentication.JwtBearer 6.0.12</summary>
 
 ## Microsoft.AspNetCore.Authentication.JwtBearer
 
-- Version: 6.0.11
+- Version: 6.0.12
 - Authors: Microsoft
 - Project URL: https://asp.net/
-- Source: [NuGet](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer/6.0.11)
+- Source: [NuGet](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer/6.0.12)
 - License: [MIT](https://github.com/dotnet/aspnetcore/raw/main/LICENSE.txt)
 
 
@@ -164,14 +181,14 @@ SOFTWARE.
 
 
 <details>
-<summary>Microsoft.AspNetCore.TestHost 6.0.11</summary>
+<summary>Microsoft.AspNetCore.TestHost 6.0.12</summary>
 
 ## Microsoft.AspNetCore.TestHost
 
-- Version: 6.0.11
+- Version: 6.0.12
 - Authors: Microsoft
 - Project URL: https://asp.net/
-- Source: [NuGet](https://www.nuget.org/packages/Microsoft.AspNetCore.TestHost/6.0.11)
+- Source: [NuGet](https://www.nuget.org/packages/Microsoft.AspNetCore.TestHost/6.0.12)
 - License: [MIT](https://github.com/dotnet/aspnetcore/raw/main/LICENSE.txt)
 
 
@@ -247,15 +264,15 @@ SOFTWARE.
 
 
 <details>
-<summary>Microsoft.CodeCoverage 17.4.0</summary>
+<summary>Microsoft.CodeCoverage 17.4.1</summary>
 
 ## Microsoft.CodeCoverage
 
-- Version: 17.4.0
+- Version: 17.4.1
 - Authors: Microsoft
 - Owners: Microsoft
 - Project URL: https://github.com/microsoft/vstest/
-- Source: [NuGet](https://www.nuget.org/packages/Microsoft.CodeCoverage/17.4.0)
+- Source: [NuGet](https://www.nuget.org/packages/Microsoft.CodeCoverage/17.4.1)
 - License: [MIT](https://github.com/microsoft/vstest/raw/main/LICENSE)
 
 
@@ -1505,15 +1522,15 @@ SOFTWARE.
 
 
 <details>
-<summary>Microsoft.NET.Test.Sdk 17.4.0</summary>
+<summary>Microsoft.NET.Test.Sdk 17.4.1</summary>
 
 ## Microsoft.NET.Test.Sdk
 
-- Version: 17.4.0
+- Version: 17.4.1
 - Authors: Microsoft
 - Owners: Microsoft
 - Project URL: https://github.com/microsoft/vstest/
-- Source: [NuGet](https://www.nuget.org/packages/Microsoft.NET.Test.Sdk/17.4.0)
+- Source: [NuGet](https://www.nuget.org/packages/Microsoft.NET.Test.Sdk/17.4.1)
 - License: [MIT](https://raw.githubusercontent.com/microsoft/vstest/main/LICENSE)
 
 
@@ -1943,15 +1960,15 @@ consequential or other damages.
 
 
 <details>
-<summary>Microsoft.TestPlatform.ObjectModel 17.4.0</summary>
+<summary>Microsoft.TestPlatform.ObjectModel 17.4.1</summary>
 
 ## Microsoft.TestPlatform.ObjectModel
 
-- Version: 17.4.0
+- Version: 17.4.1
 - Authors: Microsoft
 - Owners: Microsoft
 - Project URL: https://github.com/microsoft/vstest/
-- Source: [NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform.ObjectModel/17.4.0)
+- Source: [NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform.ObjectModel/17.4.1)
 - License: [MIT](https://github.com/microsoft/vstest/raw/v17.4.0/LICENSE)
 
 
@@ -1981,15 +1998,15 @@ SOFTWARE.
 
 
 <details>
-<summary>Microsoft.TestPlatform.TestHost 17.4.0</summary>
+<summary>Microsoft.TestPlatform.TestHost 17.4.1</summary>
 
 ## Microsoft.TestPlatform.TestHost
 
-- Version: 17.4.0
+- Version: 17.4.1
 - Authors: Microsoft
 - Owners: Microsoft
 - Project URL: https://github.com/microsoft/vstest/
-- Source: [NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform.TestHost/17.4.0)
+- Source: [NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform.TestHost/17.4.1)
 - License: [MIT](https://github.com/microsoft/vstest/raw/v17.4.0/LICENSE)
 
 
