@@ -18,15 +18,15 @@
   - :who: mocsharp
     :why: MIT (https://github.com/dotnet/aspnetcore/raw/main/LICENSE.txt)
     :versions:
-    - 6.0.12
-    :when: 2022-10-14 23:36:49.751931025 Z
+    - 6.0.15
+    :when: 2023-10-07 17:36:49.751931025 Z
 - - :approve
   - Microsoft.AspNetCore.TestHost
   - :who: mocsharp
     :why: MIT (https://github.com/dotnet/aspnetcore/raw/main/LICENSE.txt)
     :versions:
-    - 6.0.12
-    :when: 2022-10-14 23:36:49.751931025 Z
+    - 6.0.15
+    :when: 2023-10-07 17:36:49.751931025 Z
 - - :approve
   - Microsoft.CSharp
   - :who: mocsharp
@@ -39,8 +39,8 @@
   - :who: mocsharp
     :why: MIT (https://github.com/microsoft/vstest/raw/main/LICENSE)
     :versions:
-    - 17.4.1
-    :when: 2022-08-16 23:05:48.342748414 Z
+    - 17.7.2
+    :when: 2023-10-07 17:36:49.751931025 Z
 - - :approve
   - Microsoft.Extensions.Configuration
   - :who: mocsharp
@@ -256,7 +256,7 @@
   - :who: mocsharp
     :why: MIT (https://raw.githubusercontent.com/microsoft/vstest/main/LICENSE)
     :versions:
-    - 17.4.1
+    - 17.7.2
     :when: 2022-09-01 23:06:13.008314524 Z
 - - :approve
   - Microsoft.NETCore.Platforms
@@ -277,15 +277,15 @@
   - :who: mocsharp
     :why: MIT (https://github.com/microsoft/vstest/raw/v17.4.0/LICENSE)
     :versions:
-    - 17.4.1
-    :when: 2022-08-16 23:06:16.175705981 Z
+    - 17.7.2
+    :when: 2023-10-07 17:36:49.751931025 Z
 - - :approve
   - Microsoft.TestPlatform.TestHost
   - :who: mocsharp
     :why: MIT (https://github.com/microsoft/vstest/raw/v17.4.0/LICENSE)
     :versions:
-    - 17.4.1
-    :when: 2022-08-16 23:06:17.671459450 Z
+    - 17.7.2
+    :when: 2023-10-07 17:36:49.751931025 Z
 - - :approve
   - Microsoft.Win32.Primitives
   - :who: mocsharp
@@ -312,8 +312,8 @@
   - :who: mocsharp
     :why: Apache-2.0 (https://github.com/NuGet/NuGet.Client/raw/dev/LICENSE.txt)
     :versions:
-    - 5.11.0
-    :when: 2022-08-16 23:06:27.464713741 Z
+    - 6.5.0
+    :when: 2023-10-07 17:36:49.751931025 Z
 - - :approve
   - System.AppContext
   - :who: mocsharp
