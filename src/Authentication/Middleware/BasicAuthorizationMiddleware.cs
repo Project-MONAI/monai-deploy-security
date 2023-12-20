@@ -56,7 +56,7 @@ namespace Monai.Deploy.Security.Authentication.Middleware
             }
             try
             {
-                var authHeader = AuthenticationHeaderValue.Parse(httpContext.Request.Headers["Authorization"]);
+                var authHeader = AuthenticationHeaderValue.Parse(httpContext.Request.Headers.Authorization!);
                 if (authHeader.Scheme == "Basic")
                 {
                     var credentialBytes = Convert.FromBase64String(authHeader.Parameter ?? "");
