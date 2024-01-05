@@ -1,4 +1,4 @@
-<!--
+﻿<!--
   ~ Copyright 2022 MONAI Consortium
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,34 +14,29 @@
   ~ limitations under the License.
 -->
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="6.0.11" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
-    <PackageReference Include="xunit" Version="2.4.2" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="xunit" Version="2.6.4" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.6">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="coverlet.collector" Version="3.2.0">
+    <PackageReference Include="coverlet.collector" Version="6.0.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Monai.Deploy.Security.Authentication.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <None Update="test.auth.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -56,7 +51,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-  <ProjectExtensions><VisualStudio><UserProperties test_1basic_1json__JsonSchema="BasicAuthorizationMiddlewareTestBasicAuthorizationMiddlewareTestBasicAuthorizationMiddlewareTest" /></VisualStudio></ProjectExtensions>
-
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties test_1basic_1json__JsonSchema="BasicAuthorizationMiddlewareTestBasicAuthorizationMiddlewareTestBasicAuthorizationMiddlewareTest" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

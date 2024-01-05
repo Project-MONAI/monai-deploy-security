@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2022 MONAI Consortium
+ * Copyright 2023 MONAI Consortium
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,14 +56,14 @@ namespace Monai.Deploy.Security.Authentication.Middleware
             }
             try
             {
-                var authHeader = AuthenticationHeaderValue.Parse(httpContext.Request.Headers["Authorization"]);
+                var authHeader = AuthenticationHeaderValue.Parse(httpContext.Request.Headers.Authorization!);
                 if (authHeader.Scheme == "Basic")
                 {
-                    var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
+                    var credentialBytes = Convert.FromBase64String(authHeader.Parameter ?? "");
                     var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':', 2);
                     var username = credentials[0];
                     var password = credentials[1];
-                    if (string.Compare(username, _options.Value.BasicAuth.Id, false) is 0 &&
+                    if (string.Compare(username, _options.Value.BasicAuth!.Id, false) is 0 &&
                         string.Compare(password, _options.Value.BasicAuth.Password, false) is 0)
                     {
                         var claims = new[] { new Claim("name", credentials[0]) };

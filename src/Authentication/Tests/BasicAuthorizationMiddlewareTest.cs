@@ -31,13 +31,13 @@ namespace Monai.Deploy.Security.Authentication.Tests
         [Fact]
         public async Task GivenConfigurationFileToBypassAuthentication_ExpectToBypassAuthentication()
         {
-            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basicbypass.json")).StartAsync().ConfigureAwait(false);
+            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basicbypass.json")).StartAsync().ConfigureAwait(true);
 
             var server = host.GetTestServer();
             server.BaseAddress = new Uri("https://example.com/");
 
             var client = server.CreateClient();
-            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
+            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(true);
 
             Assert.True(responseMessage.IsSuccessStatusCode);
         }
@@ -47,13 +47,13 @@ namespace Monai.Deploy.Security.Authentication.Tests
         [Fact]
         public async Task GivenConfigurationFileWithBasicConfigured_WhenUserIsNotAuthenticated_ExpectToDenyRequest()
         {
-            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basic.json")).StartAsync().ConfigureAwait(false);
+            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basic.json")).StartAsync().ConfigureAwait(true);
 
             var server = host.GetTestServer();
             server.BaseAddress = new Uri("https://example.com/");
 
             var client = server.CreateClient();
-            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
+            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(true);
 
             Assert.Equal(HttpStatusCode.Unauthorized, responseMessage.StatusCode);
         }
@@ -61,14 +61,14 @@ namespace Monai.Deploy.Security.Authentication.Tests
         [Fact]
         public async Task GivenConfigurationFileWithBasicConfigured_WhenUserIsAuthenticated_ExpectToAllowRequest()
         {
-            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basic.json")).StartAsync().ConfigureAwait(false);
+            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basic.json")).StartAsync().ConfigureAwait(true);
 
             var server = host.GetTestServer();
             server.BaseAddress = new Uri("https://example.com/");
 
             var client = server.CreateClient();
             client.DefaultRequestHeaders.Add("Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("user:pass"))}");
-            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
+            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(true);
 
             Assert.Equal(HttpStatusCode.OK, responseMessage.StatusCode);
         }
@@ -76,14 +76,14 @@ namespace Monai.Deploy.Security.Authentication.Tests
         [Fact]
         public async Task GivenConfigurationFileWithBasicConfigured_WhenHeaderIsInvalid_ExpectToDenyRequest()
         {
-            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basic.json")).StartAsync().ConfigureAwait(false);
+            using var host = await new HostBuilder().ConfigureWebHost(SetupWebServer("test.basic.json")).StartAsync().ConfigureAwait(true);
 
             var server = host.GetTestServer();
             server.BaseAddress = new Uri("https://example.com/");
 
             var client = server.CreateClient();
             client.DefaultRequestHeaders.Add("Authorization", $"BasicBad {Convert.ToBase64String(Encoding.UTF8.GetBytes("user:pass"))}");
-            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(false);
+            var responseMessage = await client.GetAsync("api/Test").ConfigureAwait(true);
 
             Assert.Equal(HttpStatusCode.Unauthorized, responseMessage.StatusCode);
         }
