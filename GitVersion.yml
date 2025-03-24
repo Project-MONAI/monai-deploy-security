@@ -56,7 +56,7 @@ branches:
     mode: ContinuousDeployment
     increment: Inherit
     prevent-increment-of-merged-branch-version: false
-    tag-number-pattern: '[/-](?<number>\d+)[-/]'
+    label-number-pattern: '[/-](?<number>\d+)[-/]'
     track-merge-target: false
     source-branches: [ 'main', 'release', 'feature' ]
     tracks-release-branches: false
