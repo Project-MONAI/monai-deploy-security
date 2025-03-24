@@ -236,8 +236,10 @@ jobs:
         run: dotnet restore
         working-directory: ./src
 
-      - name: Install GitVersion
-        run: dotnet tool install --global GitVersion.Tool
+      - name: Setup GitVersion
+        uses: gittools/actions/gitversion/setup@v3.1.1
+        with:
+          versionSpec: '6.0.5'
 
       - name: Determine Version
         id: gitversion
