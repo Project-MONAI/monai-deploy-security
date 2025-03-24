@@ -24,6 +24,7 @@
     <CodeAnalysisRuleSet>..\.sonarlint\project-monai_monai-deploy-securitycsharp.ruleset</CodeAnalysisRuleSet>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE" Link="LICENSE" PackagePath="" Pack="true" />
