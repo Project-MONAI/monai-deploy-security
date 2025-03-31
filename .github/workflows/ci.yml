@@ -237,7 +237,7 @@ jobs:
         working-directory: ./src
 
       - name: Setup GitVersion
-        uses: gittools/actions/gitversion/setup@v3.1.1
+        uses: gittools/actions/gitversion/setup@v3.1.11
         with:
           versionSpec: '6.0.5'
 
